@@ -229,14 +229,14 @@ FIG_STORY = """
 """
 
 # ---------------------------------------------------------------- Home
-PAGES["index.html"] = ("Saho · Learn at your own pace, with people near you",
+PAGES["index.html"] = ("Saho · Learn on your own terms, together",
 "Saho is an open, federated learning platform in Malayalam and English. Any institution can run its own Saho, and learners keep what they learn.",
 f"""
 <div class="wrap">
   <div class="home-top">
     <div>
-      <h1><span class="hero-ml" lang="ml">ഒരുമിച്ച് പഠിക്കാം</span>Learn at your own pace, with people <em>near you</em>.</h1>
-      <p class="lede">Saho is a guide and a circle for people learning on their own, at any stage of life. It helps you work out what to learn next, and finds you people to learn it with, in Malayalam, English or a mix of both.</p>
+      <h1><span class="hero-ml" lang="ml">ഒരുമിച്ച് പഠിക്കാം</span>Learn on your own terms, <em>together</em>.</h1>
+      <p class="lede">Saho is a guide and a gathering place for people learning on their own, at any stage of life. It helps you work out what to learn next, and finds you people to learn it with, in Malayalam, English or a mix of both.</p>
       <div class="btns">
         <a class="btn primary" href="how-it-works.html">How it works</a>
         <a class="btn" href="institutions.html">For institutions</a>
@@ -253,7 +253,7 @@ f"""
       </div>
       <div class="tile sky">
         <h2>Circles</h2>
-        <p>Small groups of learners who meet where they are, online and in person. Helpers from the community explain, review and encourage.</p>
+        <p>Small groups of learners who meet where they are, online or in person. Helpers from the community explain, review and encourage.</p>
       </div>
       <div class="tile earth">
         <h2>Your record</h2>
@@ -265,7 +265,7 @@ f"""
 
 <div class="band">
   <div class="wrap">
-    <p class="big"><em>For finding a direction, not cramming for one exam.</em></p>
+    <p class="big"><em>For finding your own direction.</em></p>
     <p>Think of a recent graduate doing part-time work, unsure of what comes next. Saho is for exploring your world, your skills and what's possible, at your own pace.</p>
     <p><a href="how-it-works.html">See how it works</a></p>
   </div>
@@ -295,7 +295,7 @@ f"""
   <ol class="principles">
     <li><h2>Start with a conversation</h2><p>The guide is an AI assistant. Tell it what you do now, what you enjoy and what you're unsure about, in Malayalam, English or a mix of both. It keeps notes on what you already know and what you're curious about. You can read those notes and correct them.</p></li>
     <li><h2>Get a plan for this month</h2><p>Small steps you can take: something to watch, something to read (often from your library's shelf), something to try in your own work, and a time to look back on how it went.</p></li>
-    <li><h2>Learn with a circle</h2><p>Meet other learners at your library or college, in person and online. Helpers explain, review and encourage, and you can thank them. The guide helps you find your way, but people do the teaching.</p></li>
+    <li><h2>Learn with a circle</h2><p>Meet other learners in person at your library or college, or online with people anywhere. Helpers explain, review and encourage, and you can thank them. The guide helps you find your way, but people do the teaching.</p></li>
     <li><h2>Take it with you</h2><p>Your record of what you've learned belongs to you. Move it to another place, or download it, whenever you choose.</p></li>
   </ol>
 
