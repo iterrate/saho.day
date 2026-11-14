@@ -19,13 +19,13 @@ EMAIL = "hello@saho.day"
 NAV = [
     ("./", "Home"),
     ("how-it-works.html", "How it works"),
-    ("institutions.html", "For institutions"),
+    ("institutions.html", "Institutions"),
     ("about.html", "About"),
     ("contact.html", "Contact"),
 ]
 
 HEAD = """<!DOCTYPE html>
-<html lang="en-IN">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,8 +37,12 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{url}">
-<meta property="og:locale" content="en_IN">
-<meta name="twitter:card" content="summary">
+<meta property="og:locale" content="{locale}">
+<meta property="og:image" content="{base}og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Saho: Learn on your own terms, together. Four linked places: a village library, a college, a hospital and someone's own Saho.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F6F3EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#282D2A" media="(prefers-color-scheme: dark)">
 <meta name="darkreader-lock">
@@ -73,6 +77,7 @@ FOOT = """</main>
     <ul>
       <li><a href="https://iterrate.in/company.html">Company details</a></li>
       <li><a href="contact.html#privacy">Privacy</a></li>
+      <li>{langlink}</li>
       <li>© {year} Iterrate</li>
     </ul>
   </div>
@@ -167,49 +172,6 @@ FIG_CONTRAST = """
 </figure>
 """
 
-FIG_STORY = """
-<figure class="fig">
-  <ol class="panels">
-    <li>
-      <h3>1 · Join</h3>
-      <svg viewBox="0 0 260 190" role="img" aria-label="A learner inside a village library.">
-        <rect class="place sky" x="20" y="30" width="220" height="130" rx="10"/>
-        <text class="lbl" x="40" y="68">Village library</text>
-        <circle class="me" cx="60" cy="120" r="11"/>
-      </svg>
-      <p>A learner joins at their village library. Their account and record live there.</p>
-    </li>
-    <li>
-      <h3>2 · Learn with others</h3>
-      <svg viewBox="0 0 260 190" role="img" aria-label="The learner stays in the library, with a dotted line to a circle at a college.">
-        <path class="ln plain" d="M117 70H143"/>
-        <rect class="place sky" x="10" y="30" width="105" height="130" rx="10"/>
-        <text class="lbl" x="24" y="66">Library</text>
-        <rect class="place leaf" x="145" y="30" width="105" height="130" rx="10"/>
-        <text class="lbl" x="159" y="66">College</text>
-        <path class="dots" d="M52 132C80 182 180 182 205 132"/>
-        <circle class="me" cx="40" cy="120" r="11"/>
-        <circle class="spot leaf" cx="205" cy="118" r="9" style="stroke-width:3"/>
-      </svg>
-      <p>They join a circle at a college nearby. Their home doesn't change.</p>
-    </li>
-    <li>
-      <h3>3 · Move, if they want</h3>
-      <svg viewBox="0 0 260 190" role="img" aria-label="The learner has moved into the college, with an arrow from the library.">
-        <rect class="place sky" x="10" y="30" width="105" height="130" rx="10"/>
-        <text class="lbl" x="24" y="66">Library</text>
-        <rect class="place leaf" x="145" y="30" width="105" height="130" rx="10"/>
-        <text class="lbl" x="159" y="66">College</text>
-        <path class="ln plain" d="M60 120H170"/>
-        <path class="ln plain" d="M170 120L160 110"/>
-        <circle class="me" cx="190" cy="120" r="11"/>
-      </svg>
-      <p>If they move their home, their record goes with them.</p>
-    </li>
-  </ol>
-</figure>
-"""
-
 # ---------------------------------------------------------------- Home
 PAGES["index.html"] = ("Saho · Learn on your own terms, together",
 "Saho is an open, federated learning platform in Malayalam and English. Any institution can run its own Saho, and learners keep what they learn.",
@@ -223,6 +185,7 @@ f"""
         <a class="btn primary" href="how-it-works.html">How it works</a>
         <a class="btn" href="institutions.html">For institutions</a>
       </div>
+      <p class="status">In development. A pilot with libraries comes next. <a href="ml.html" lang="ml">മലയാളത്തിൽ വായിക്കാം</a></p>
     </div>
     {FED.strip()}
   </div>
@@ -231,7 +194,7 @@ f"""
     <div class="grid">
       <div class="tile leaf">
         <h2>A guide</h2>
-        <p>Talk things through in the language you think in. The guide suggests next steps and resources, including books on your library's shelf. It doesn't lecture.</p>
+        <p>An AI assistant you can talk things through with, in the language you think in. It suggests next steps and resources, including books on your library's shelf. It doesn't lecture.</p>
       </div>
       <div class="tile sky">
         <h2>Circles</h2>
@@ -278,6 +241,7 @@ f"""
     <h2>Places, not a platform</h2>
     <p>Saho isn't one website. Any institution ({INSTITUTIONS}) can run its own Saho, which we call a <em>place</em>. Places are linked to each other, so a learner at one place can learn with people at another.</p>
     {FIG_CONTRAST.strip()}
+    <p>Places also share what works, such as learning paths and ways of learning in a circle, with credit to the people who made them.</p>
     <p>One Saho can serve every library in a panchayat. A single person can also run their own, and join an institution later, or leave it.</p>
   </section>
 
@@ -287,14 +251,7 @@ f"""
     <p>Every learner has one home place. Your account, your record and your conversations with the guide are kept there.</p>
     {FIG_CENTRE.strip()}
     <p>You can join circles at other places without leaving home. Each place sees only what you allow, and you can take that back at any time. Other places can't see your conversations with the guide.</p>
-  </section>
-
-  <section>
-    <span class="mark earth"></span>
-    <h2>Moving your home</h2>
-    <p>Your home can change. If you start studying at a college, or move to another town, you can move your home place too, and your record goes with you.</p>
-    {FIG_STORY.strip()}
-    <p>You can also download your record as a file whenever you want.</p>
+    <p>If you move, to a college or to another town, you can move your home place too, and your record goes with you. You can also download it as a file whenever you want.</p>
   </section>
 </div>
 
@@ -304,7 +261,7 @@ f"""
     <h2>Three commitments</h2>
     <div class="grid">
       <div class="tile leaf"><h3>Malayalam first</h3><p>Malayalam comes first, including the everyday mix of Malayalam and English. English is something Saho helps with, not a gate to get in. Other languages spoken in Keralam will follow soon.</p></div>
-      <div class="tile earth"><h3>AI you can choose</h3><p>The guide runs on AI language models. Each place chooses which one, and can run its own on its own hardware. Nobody has to depend on one company, including us.</p></div>
+      <div class="tile earth"><h3>AI you can choose</h3><p>The guide runs on large language models (LLMs), the kind of AI behind chat assistants. Each place chooses which one, and can run its own on its own hardware. Nobody has to depend on one company, including us.</p></div>
       <div class="tile sky"><h3>Open source</h3><p>Saho will be released as open-source software, so that anyone can inspect it, run it and improve it.</p></div>
     </div>
   </section>
@@ -393,6 +350,63 @@ f"""
 </div>
 """)
 
+# ---------------------------------------------------------------- Malayalam home
+FED_ML = (FED
+    .replace('<text class="lbl" x="26" y="50">Village library</text>', '<text class="lbl" x="26" y="52">വായനശാല</text>')
+    .replace('<text class="lbl" x="276" y="50">College</text>', '<text class="lbl" x="276" y="52">കോളേജ്</text>')
+    .replace('<text class="lbl" x="276" y="300">Hospital</text>', '<text class="lbl" x="276" y="302">ആശുപത്രി</text>')
+    .replace('<text class="lbl" x="26" y="300">Your own Saho</text>', '<text class="lbl" x="26" y="302">സ്വന്തം സഹോ</text>')
+    .replace('<text class="sub" x="26" y="324">run by one person</text>', '<text class="sub" x="26" y="326">ഒരാൾ നടത്തുന്നത്</text>')
+    .replace('aria-label="Four linked places: a village library, a college, a hospital and someone\'s own Saho. A learner at the library has a dotted link to a circle at the college."',
+             'aria-label="പരസ്പരം ബന്ധിപ്പിച്ച നാല് ഇടങ്ങൾ: ഒരു ഗ്രാമീണ വായനശാല, ഒരു കോളേജ്, ഒരു ആശുപത്രി, ഒരാളുടെ സ്വന്തം സഹോ. വായനശാലയിലുള്ള ഒരു പഠിതാവിന് കോളേജിലെ ഒരു കൂട്ടവുമായി ബന്ധമുണ്ട്."')
+    .replace('<figcaption>Each institution runs its own Saho, and they are all linked. Here, a learner whose home is the village library has joined a circle at the college.</figcaption>',
+             '<figcaption>ഓരോ സ്ഥാപനവും സ്വന്തം സഹോ നടത്തുന്നു, അവയെല്ലാം പരസ്പരം ബന്ധിപ്പിച്ചിരിക്കുന്നു. ഇവിടെ, ഗ്രാമീണ വായനശാലയിൽ അംഗമായ ഒരു പഠിതാവ് കോളേജിലെ ഒരു കൂട്ടത്തിൽ ചേർന്നിരിക്കുന്നു.</figcaption>'))
+assert FED_ML.count("ഗ്രാമീണ") == 2 and "Village library" not in FED_ML
+
+PAGES["ml.html"] = ("സഹോ · സ്വന്തം രീതിയിൽ, ഒരുമിച്ച് പഠിക്കാം",
+"സ്വന്തമായി പഠിക്കുന്നവർക്ക് ഒരു വഴികാട്ടിയും ഒത്തുകൂടാൻ ഒരിടവും. മലയാളത്തിലും ഇംഗ്ലീഷിലും. ഏതു സ്ഥാപനത്തിനും സ്വന്തം സഹോ നടത്താം.",
+f"""
+<div class="wrap">
+  <div class="home-top">
+    <div>
+      <h1><span class="hero-ml" lang="en">Learn on your own terms, together.</span>സ്വന്തം രീതിയിൽ, <em>ഒരുമിച്ച്</em> പഠിക്കാം.</h1>
+      <p class="lede">ജീവിതത്തിന്റെ ഏതു ഘട്ടത്തിലും സ്വന്തമായി പഠിക്കുന്നവർക്ക് ഒരു വഴികാട്ടിയും ഒത്തുകൂടാൻ ഒരിടവുമാണ് സഹോ. അടുത്തതായി എന്തു പഠിക്കണമെന്ന് കണ്ടെത്താൻ സഹായിക്കും, ഒപ്പം പഠിക്കാൻ ആളുകളെയും കണ്ടെത്തിത്തരും. മലയാളത്തിലോ ഇംഗ്ലീഷിലോ, രണ്ടും ഇടകലർത്തിയോ സംസാരിക്കാം.</p>
+      <div class="btns">
+        <a class="btn primary" href="how-it-works.html">എങ്ങനെ പ്രവർത്തിക്കുന്നു <span class="small-en" lang="en">(English)</span></a>
+        <a class="btn" href="institutions.html">സ്ഥാപനങ്ങൾക്ക് <span class="small-en" lang="en">(English)</span></a>
+      </div>
+      <p class="status">ഇപ്പോൾ നിർമ്മാണത്തിലാണ്. അടുത്ത ഘട്ടം ലൈബ്രറികളുമായി ചേർന്ന് ഒരു ചെറിയ പരീക്ഷണം.</p>
+    </div>
+    {FED_ML.strip()}
+  </div>
+
+  <section aria-label="സഹോ എന്തു ചെയ്യുന്നു">
+    <div class="grid">
+      <div class="tile leaf">
+        <h2>വഴികാട്ടി</h2>
+        <p>മനസ്സിലുള്ളത് സ്വന്തം ഭാഷയിൽ സംസാരിക്കാവുന്ന ഒരു AI സഹായി. അടുത്ത ചുവടുകളും പഠനസാമഗ്രികളും നിർദേശിക്കും, നിങ്ങളുടെ ലൈബ്രറിയിലെ പുസ്തകങ്ങൾ ഉൾപ്പെടെ. ക്ലാസെടുക്കില്ല.</p>
+      </div>
+      <div class="tile sky">
+        <h2>കൂട്ടങ്ങൾ</h2>
+        <p>ഓൺലൈനായോ നേരിട്ടോ ഒത്തുകൂടുന്ന പഠിതാക്കളുടെ ചെറിയ കൂട്ടങ്ങൾ. നാട്ടിലെ സഹായികൾ കാര്യങ്ങൾ വിശദീകരിക്കും, വിലയിരുത്തും, പ്രോത്സാഹിപ്പിക്കും.</p>
+      </div>
+      <div class="tile earth">
+        <h2>നിങ്ങളുടെ രേഖ</h2>
+        <p>നിങ്ങൾ പഠിക്കുന്നതും പറയുന്നതും നിങ്ങളുടേതാണ്. നിങ്ങൾ അനുവദിക്കുന്നതു മാത്രമേ ഓരോ ഇടവും കാണൂ. എവിടെ പോയാലും അത് കൂടെ കൊണ്ടുപോകാം.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="band">
+  <div class="wrap">
+    <p class="big"><em>സ്വന്തം വഴി കണ്ടെത്താൻ.</em></p>
+    <p>പഠിച്ചിറങ്ങി, പാർട്ട്-ടൈം ജോലി ചെയ്യുന്ന, ഇനി എന്ത് എന്ന് ഉറപ്പില്ലാത്ത ഒരാളെ ഓർത്തുനോക്കൂ. ചുറ്റുമുള്ള ലോകവും സ്വന്തം കഴിവുകളും സാധ്യതകളും സ്വന്തം വേഗത്തിൽ കണ്ടെത്താനുള്ളതാണ് സഹോ.</p>
+    <p><a href="how-it-works.html">സഹോ എങ്ങനെ പ്രവർത്തിക്കുന്നു എന്നു കാണാം <span lang="en">(English)</span></a></p>
+  </div>
+</div>
+""")
+
 # ---------------------------------------------------------------- About
 PAGES["about.html"] = ("About Saho",
 "Why Saho is being built, who builds it, and where its name comes from.",
@@ -458,6 +472,15 @@ EXTRA_HEAD = {
 }
 
 
+# Pages not in English.
+LANG = {"ml.html": "ml"}
+LOCALE = {"ml.html": "ml_IN"}
+ALTERNATES = (f'<link rel="alternate" hreflang="en" href="{BASE}">\n'
+              f'<link rel="alternate" hreflang="ml" href="{BASE}ml.html">\n')
+EXTRA_HEAD["index.html"] = ALTERNATES + EXTRA_HEAD["index.html"]
+EXTRA_HEAD["ml.html"] = ALTERNATES
+
+
 def asset(name):
     """Link to a file with a short content hash, so browsers fetch it again after each change."""
     h = hashlib.sha1((SITE / name).read_bytes()).hexdigest()[:8]
@@ -510,7 +533,8 @@ def build():
         )
         url = BASE if fname == "index.html" else BASE + fname
         head = HEAD.replace('href="style.css"', f'href="{asset("style.css")}"').format(
-            title=plain(title), desc=plain(desc), nav=nav, url=url,
+            title=plain(title), desc=plain(desc), nav=nav, url=url, base=BASE,
+            lang=LANG.get(fname, "en-IN"), locale=LOCALE.get(fname, "en_IN"),
             extra_head=EXTRA_HEAD.get(fname, ""))
         if fname == "404.html":
             # GitHub serves this page at any missing address, so links must start from the site root.
@@ -519,7 +543,9 @@ def build():
             head = head.replace('<meta name="description"', '<meta name="robots" content="noindex">\n<meta name="description"', 1)
         else:
             pages.append((url, fname))
-        foot = FOOT.format(year=YEAR, email=EMAIL)
+        langlink = ('<a href="./" lang="en">English</a>' if fname == "ml.html"
+                    else '<a href="ml.html" lang="ml">മലയാളം</a>')
+        foot = FOOT.format(year=YEAR, email=EMAIL, langlink=langlink)
         html = head + typography(body) + typography(foot)
         changed[fname] = not (SITE / fname).exists() or (SITE / fname).read_text(encoding="utf-8") != html
         (SITE / fname).write_text(html, encoding="utf-8")
