@@ -89,30 +89,30 @@ INSTITUTIONS = "a library, a college, a panchayat, a hospital"
 FED = """
 <figure class="fed">
   <svg viewBox="0 0 460 390" role="img" aria-labelledby="fed-cap">
-    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 64H283"/>
+    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 64H281"/>
+    <path class="ln sky" pathLength="100" style="--len:100;--d:.8s" d="M274 57 281 64"/>
     <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M365 100V286"/>
     <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M283 322H177"/>
-    <path class="ln sky" pathLength="100" style="--len:100;--d:1.3s" d="M95 286V100"/>
-    <path class="ln leaf" pathLength="100" style="--len:100;--d:1.7s" d="M177 104L283 282"/>
+    <path class="ln plain" pathLength="100" style="--len:100;--d:1.3s" d="M95 286V100"/>
+    <path class="ln plain" pathLength="100" style="--len:100;--d:1.7s" d="M177 104L283 282"/>
     <rect class="place sky" x="20" y="30" width="150" height="66" rx="10"/>
     <text class="lbl" x="36" y="58">Village library</text>
-    <text class="sub" x="36" y="80">a learner's home place</text>
+    <text class="sub" x="36" y="80">a learner's first home</text>
     <rect class="place leaf" x="290" y="30" width="150" height="66" rx="10"/>
     <text class="lbl" x="306" y="58">College</text>
-    <text class="sub" x="306" y="80">a circle they join</text>
+    <text class="sub" x="306" y="80">their new home</text>
     <rect class="place earth" x="290" y="290" width="150" height="66" rx="10"/>
     <text class="lbl" x="306" y="318">Hospital</text>
     <text class="sub" x="306" y="340">Saho for its staff</text>
-    <rect class="place sky" x="20" y="290" width="150" height="66" rx="10"/>
-    <text class="lbl" x="36" y="318">One person</text>
-    <text class="sub" x="36" y="340">their own Saho</text>
-    <g class="moving">
-      <circle class="me" r="8">
-        <animateMotion dur="7s" repeatCount="indefinite" path="M177 64H283" keyPoints="0;0;1;1" keyTimes="0;.35;.65;1" calcMode="linear"/>
-      </circle>
-    </g>
+    <rect class="place plain" x="20" y="290" width="150" height="66" rx="10"/>
+    <text class="lbl" x="36" y="318">Your own Saho</text>
+    <text class="sub" x="36" y="340">run by one person</text>
+    <circle class="me moving" cx="190" cy="64" r="9">
+      <animate attributeName="cx" from="190" to="250" begin="2.4s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".45 .05 .35 1"/>
+    </circle>
+    <circle class="me still" cx="250" cy="64" r="9"/>
   </svg>
-  <figcaption id="fed-cap">Each institution runs its own Saho, and they talk to each other. A learner's record (the dot) goes with them when they join a circle somewhere else.</figcaption>
+  <figcaption id="fed-cap">Each institution runs its own Saho, and they all connect. A learner (the dot) can move their home from one place to another, and their record goes with them.</figcaption>
 </figure>
 """
 
