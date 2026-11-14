@@ -1,4 +1,5 @@
-/* saho.day. Colours, type and the line motif follow the Iterrate design guide (shared with iterrate.in). */
+/* saho.day. Type and the line motif follow the Iterrate design guide (shared with iterrate.in); the colours are
+   Saho's own, from its logo: backwater teal, paddy green and laterite. */
 @font-face{font-family:'Crimson Pro';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/crimson-pro-latin.woff2) format('woff2')}
 @font-face{font-family:'Crimson Pro';font-style:italic;font-weight:400 700;font-display:swap;src:url(fonts/crimson-pro-italic-latin.woff2) format('woff2')}
 /* Malayalam: only downloaded when a page actually contains Malayalam letters (unicode-range). */
@@ -10,9 +11,9 @@
   /* colours (light) */
   --paper:#F6F3EA; --surface:#FFFDF8; --ink:#23272A; --muted:#565C5F; --rule:#DAD3C2;
   --navbar:#E9E3D3; --navhover:#DDD5C1; --current:#FFFDF8;
-  --sky:#2B9AC8; --sky-text:#1C6E93; --leaf:#4E9A2E; --leaf-text:#3B7A22; --earth:#7A4E32;
-  --leaf-soft:#E7F0DF;
-  --band:#23272A; --band-text:#C9CBC6; --band-head:#EEEBE2; --band-leaf:#8CCB6A; --band-link:#8FD0EE;
+  --sky:#167A7C; --sky-text:#12676A; --leaf:#3E8E41; --leaf-text:#2F7232; --earth:#B5532F;
+  --leaf-soft:#E3EFE3;
+  --band:#23272A; --band-text:#C9CBC6; --band-head:#EEEBE2; --band-leaf:#86CB88; --band-link:#7CCDCF;
   --on-accent:#FFFFFF;
   /* type */
   --display:'Crimson Pro', Georgia, 'Times New Roman', 'Noto Sans Malayalam', serif;
@@ -32,9 +33,9 @@
   :root{
     --paper:#282D2A; --surface:#313633; --ink:#ECE9E0; --muted:#B4B9B4; --rule:#464C48;
     --navbar:#313633; --navhover:#3B413D; --current:#454B47;
-    --sky:#4FB3E0; --sky-text:#8CCFEE; --leaf:#6CBF45; --leaf-text:#93D070; --earth:#C9946C;
-    --leaf-soft:#2F3A29;
-    --band:#1E2220; --band-text:#C9CBC6; --band-head:#EEEBE2; --band-leaf:#93D070; --band-link:#8CCFEE;
+    --sky:#3BA9AB; --sky-text:#7CCDCF; --leaf:#5FB362; --leaf-text:#86CB88; --earth:#D9774F;
+    --leaf-soft:#2C3A2D;
+    --band:#1E2220; --band-text:#C9CBC6; --band-head:#EEEBE2; --band-leaf:#86CB88; --band-link:#7CCDCF;
     --on-accent:#282D2A;
   }
 }
@@ -224,10 +225,9 @@ main > .band:last-child{margin-bottom:0}
 }
 
 /* ---------- saho.day additions ---------- */
-.wordmark{display:flex;align-items:baseline;gap:10px;color:var(--ink);text-decoration:none}
-.wordmark b{font-family:var(--display);font-size:2.1rem;font-weight:600;letter-spacing:-.01em;line-height:1}
-.wordmark b::after{content:".";color:var(--leaf)}
-.wordmark span{font-size:var(--t-s);color:var(--muted)}
+.wordmark{display:block;line-height:0;border-radius:6px}
+.wordmark img{display:block;height:42px;width:auto}
+@media (max-width:560px){.wordmark img{height:34px}}
 .hero-ml{display:block;font-family:'Noto Sans Malayalam', var(--body);font-size:.55em;font-weight:500;line-height:1.5;color:var(--leaf-text);margin-bottom:6px;letter-spacing:0}
 .home-top{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;margin-top:34px}
 .home-top h1{max-width:15ch}
