@@ -224,10 +224,9 @@ main > .band:last-child{margin-bottom:0}
 }
 
 /* ---------- saho.day additions ---------- */
-.wordmark{display:flex;align-items:baseline;gap:10px;color:var(--ink);text-decoration:none}
-.wordmark b{font-family:var(--display);font-size:2.1rem;font-weight:600;letter-spacing:-.01em;line-height:1}
-.wordmark b::after{content:".";color:var(--leaf)}
-.wordmark span{font-size:var(--t-s);color:var(--muted)}
+.wordmark{display:block;line-height:0;border-radius:6px}
+.wordmark img{display:block;height:42px;width:auto}
+@media (max-width:560px){.wordmark img{height:34px}}
 .hero-ml{display:block;font-family:'Noto Sans Malayalam', var(--body);font-size:.55em;font-weight:500;line-height:1.5;color:var(--leaf-text);margin-bottom:6px;letter-spacing:0}
 .home-top{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;margin-top:34px}
 .home-top h1{max-width:15ch}
