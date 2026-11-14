@@ -20,6 +20,7 @@ NAV = [
     ("./", "Home"),
     ("how-it-works.html", "How it works"),
     ("institutions.html", "For institutions"),
+    ("about.html", "About"),
     ("contact.html", "Contact"),
 ]
 
@@ -66,7 +67,6 @@ FOOT = """</main>
   <div class="wrap">
     <picture><source srcset="iterrate-icon-dark.svg" media="(prefers-color-scheme: dark)"><img src="iterrate-icon.svg" alt="" width="44" height="44"></picture>
     <div>
-      <p class="name-note"><em>Saho</em> is a call to work together, named for Sahodaran Ayyappan and his ideals of fraternity and equality. <em>saho.day</em> reads as <em>sahoday</em>: rising together.</p>
       <p>Saho is built by <a href="https://iterrate.in">Iterrate (OPC) Private Limited</a>, Thiruvananthapuram.</p>
       <p><a href="mailto:{email}">{email}</a></p>
     </div>
@@ -89,25 +89,25 @@ INSTITUTIONS = "a library, a college, a panchayat, a hospital"
 # their library to a college circle. Lines draw on load (CSS), unless reduced motion is set.
 FED = """
 <figure class="fed">
-  <svg viewBox="0 0 460 370" role="img" aria-label="Four linked places: a village library, a college, a hospital and someone's own Saho. A learner at the library has a dotted link to a circle at the college.">
-    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 52H283"/>
-    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M365 108V282"/>
-    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M283 325H177"/>
-    <path class="ln plain" pathLength="100" style="--len:100;--d:1.3s" d="M95 282V108"/>
-    <rect class="place sky" x="20" y="30" width="150" height="70" rx="10"/>
-    <text class="lbl" x="36" y="58">Village library</text>
-    <rect class="place leaf" x="290" y="30" width="150" height="70" rx="10"/>
-    <text class="lbl" x="306" y="58">College</text>
-    <rect class="place earth" x="290" y="290" width="150" height="70" rx="10"/>
-    <text class="lbl" x="306" y="318">Hospital</text>
-    <rect class="place plain" x="20" y="290" width="150" height="70" rx="10"/>
-    <text class="lbl" x="36" y="318">Your own Saho</text>
-    <text class="sub" x="36" y="342">run by one person</text>
+  <svg viewBox="0 0 440 356" role="img" aria-label="Four linked places: a village library, a college, a hospital and someone's own Saho. A learner at the library has a dotted link to a circle at the college.">
+    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M188 44H252"/>
+    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M345 104V262"/>
+    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M252 308H188"/>
+    <path class="ln plain" pathLength="100" style="--len:100;--d:1.3s" d="M95 262V104"/>
+    <rect class="place sky" x="10" y="20" width="170" height="76" rx="10"/>
+    <text class="lbl" x="26" y="50">Village library</text>
+    <rect class="place leaf" x="260" y="20" width="170" height="76" rx="10"/>
+    <text class="lbl" x="276" y="50">College</text>
+    <rect class="place earth" x="260" y="270" width="170" height="76" rx="10"/>
+    <text class="lbl" x="276" y="300">Hospital</text>
+    <rect class="place plain" x="10" y="270" width="170" height="76" rx="10"/>
+    <text class="lbl" x="26" y="300">Your own Saho</text>
+    <text class="sub" x="26" y="324">run by one person</text>
     <g class="step s2">
-      <path class="dots" d="M164 82H298"/>
-      <circle class="ring" cx="310" cy="82" r="8"/>
+      <path class="dots" d="M176 76H274"/>
+      <circle class="ring" cx="286" cy="76" r="9"/>
     </g>
-    <circle class="me step s1" cx="150" cy="82" r="8"/>
+    <circle class="me step s1" cx="160" cy="76" r="9"/>
   </svg>
   <figcaption>Each institution runs its own Saho, and they are all linked. Here, a learner whose home is the village library has joined a circle at the college.</figcaption>
 </figure>
@@ -338,7 +338,7 @@ f"""
     <div class="grid two">
       <div class="tile sky"><h2>Libraries</h2><p>A reading room becomes a place to learn with others. Saho points learners to books on your own shelves.</p></div>
       <div class="tile earth"><h2>Panchayats</h2><p>One Saho can serve every library in a panchayat, with local resources and local priorities.</p></div>
-      <div class="tile leaf"><h2>Colleges</h2><p>Students and alumni keep learning beyond the syllabus. Your college decides how learning works on its place.</p></div>
+      <div class="tile leaf"><h2>Colleges</h2><p>Students and alumni keep learning beyond the syllabus. Your college decides how learning works at its place.</p></div>
       <div class="tile sky"><h2>Any organisation</h2><p>A hospital could run Saho to help its staff keep learning. So could a cooperative, a club or a company.</p></div>
     </div>
   </section>
@@ -367,13 +367,13 @@ f"""
 
 # ---------------------------------------------------------------- Contact
 PAGES["contact.html"] = ("Contact · Saho",
-"Write to the people building Saho, in Malayalam or English. Includes our privacy note: no cookies, no analytics.",
+"Write to the people building Saho. Includes our privacy note: no cookies, no analytics.",
 f"""
 <div class="wrap narrow">
   <section class="page-top">
     <span class="mark sky"></span>
     <h1>Get in touch</h1>
-    <p class="lede">Want to try Saho, run it at your institution, or help build it? We'd like to hear from you.</p>
+    <p class="lede">Want to try Saho when it's ready, run it at your institution, or help build it? We'd like to hear from you.</p>
   </section>
 
   <section>
@@ -387,8 +387,40 @@ f"""
   <section id="privacy">
     <span class="mark earth"></span>
     <h2>Privacy</h2>
-    <p>This site sets no cookies and uses no analytics or trackers. It is hosted on GitHub Pages, and GitHub logs visitors' IP addresses for security (see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>). Our email is handled by Zoho Mail.</p>
+    <p>This site sets no cookies and uses no analytics or trackers. It is hosted on GitHub Pages, and GitHub logs visitors' IP addresses for security (see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>). Email to {EMAIL} is forwarded by Cloudflare to our inbox at Zoho Mail.</p>
     <p>If you write to us, we use your email address and what you tell us only to reply. We don't share it with anyone, and we delete it when you ask.</p>
+  </section>
+</div>
+""")
+
+# ---------------------------------------------------------------- About
+PAGES["about.html"] = ("About Saho",
+"Why Saho is being built, who builds it, and where its name comes from.",
+f"""
+<div class="wrap narrow">
+  <section class="page-top">
+    <span class="mark"></span>
+    <h1>About Saho</h1>
+    <p class="lede">Saho is a learning platform for Keralam, run by the institutions that use it. It is in development now, and will be released as open-source software.</p>
+  </section>
+
+  <section>
+    <span class="mark sky"></span>
+    <h2>Why we're building it</h2>
+    <p>Keralam aims to be a knowledge society. AI is changing what knowledge work looks like, and we want people here to learn how to use these tools in their work and lives on their own terms, without handing that over to a few distant platforms.</p>
+  </section>
+
+  <section>
+    <span class="mark"></span>
+    <h2>Who builds it</h2>
+    <p>Saho is built by <a href="https://iterrate.in">Iterrate (OPC) Private Limited</a>, founded by Sangeeth. It is a one-person company for now. You can read more about Sangeeth at <a href="https://sangeethvarma.com">sangeethvarma.com</a>.</p>
+    <p>If you'd like to help build Saho, <a href="contact.html">write to us</a>.</p>
+  </section>
+
+  <section>
+    <span class="mark earth"></span>
+    <h2>The name</h2>
+    <p><em>Saho</em> is a call to work together, named for Sahodaran Ayyappan and his ideals of fraternity and equality. <em>saho.day</em> reads as <em>sahoday</em>: rising together.</p>
   </section>
 </div>
 """)
