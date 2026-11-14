@@ -148,7 +148,7 @@ FIG_CENTRE = """
     <text class="sub" x="272" y="165">home</text>
     <text class="sub" x="330" y="256">a circle</text>
   </svg>
-  <figcaption>The learner is at the centre, not a platform. They have one home place (the solid line) and can join circles at other places (the dotted line). The places are linked to each other.</figcaption>
+  <figcaption>The learner is at the centre, not a platform. The solid line goes to their home place. The dotted line goes to a circle they joined somewhere else.</figcaption>
 </figure>
 """
 
@@ -283,50 +283,68 @@ f"""
 
 # ---------------------------------------------------------------- How it works
 PAGES["how-it-works.html"] = ("How Saho works",
-"How Saho works: a guide, circles, shared learning paths and a record you own, across places run by different institutions.",
+"How Saho works: a guide, circles and a record you own, across places run by different institutions and linked to each other.",
 f"""
 <div class="wrap narrow">
   <section class="page-top">
     <span class="mark"></span>
     <h1>How Saho works</h1>
-    <p class="lede">You talk to a guide, learn with a circle, and keep a record of what you've learned. Different institutions run Saho, and they are all connected.</p>
+    <p class="lede">Saho gives you three things: a guide to help you plan, a circle of people to learn with, and a record of what you've learned that stays yours. Many institutions run Saho, and their places are linked.</p>
   </section>
 
   <ol class="principles">
-    <li><h2>Start with a conversation</h2><p>Tell the guide what you do now, what you enjoy and what you're unsure about, in Malayalam, English or a mix of both. It notes what you already know and what you're curious about, and you correct it when it gets you wrong.</p></li>
+    <li><h2>Start with a conversation</h2><p>The guide is an AI assistant. Tell it what you do now, what you enjoy and what you're unsure about, in Malayalam, English or a mix of both. It keeps notes on what you already know and what you're curious about. You can read those notes and correct them.</p></li>
     <li><h2>Get a plan for this month</h2><p>Small steps you can take: something to watch, something to read (often from your library's shelf), something to try in your own work, and a time to look back on how it went.</p></li>
-    <li><h2>Learn with a circle</h2><p>Meet other learners at your library or college, in person and online. Helpers explain, review and encourage, and you can thank them.</p></li>
+    <li><h2>Learn with a circle</h2><p>Meet other learners at your library or college, in person and online. Helpers explain, review and encourage, and you can thank them. The guide helps you find your way, but people do the teaching.</p></li>
     <li><h2>Take it with you</h2><p>Your record of what you've learned belongs to you. Move it to another place, or download it, whenever you choose.</p></li>
   </ol>
-  {FIG_CENTRE.strip()}
 
   <section>
     <span class="mark sky"></span>
     <h2>Places, not a platform</h2>
-    <p>Saho isn't one website. Any institution ({INSTITUTIONS}) can run its own Saho, which we call a <em>place</em>. Places talk to each other, so a learner at a village library can join a circle at a college nearby.</p>
+    <p>Saho isn't one website. Any institution ({INSTITUTIONS}) can run its own Saho, which we call a <em>place</em>. Places are linked to each other, so a learner at one place can learn with people at another.</p>
     {FIG_CONTRAST.strip()}
-    <p>Every learner has one home place for their account and record. They decide what each place can see, and they can take that back. Private conversations with the guide stay in their home place.</p>
-    {FIG_STORY.strip()}
     <p>One Saho can serve every library in a panchayat. A single person can also run their own, and join an institution later, or leave it.</p>
   </section>
 
   <section>
     <span class="mark"></span>
-    <h2>Malayalam first</h2>
-    <p>Malayalam comes first, including the everyday mix of Malayalam and English, not as an afterthought. English is something Saho helps with, not a gate to get in. Other languages spoken in Keralam will follow soon.</p>
+    <h2>One home, many circles</h2>
+    <p>Every learner has one home place. Your account, your record and your conversations with the guide are kept there.</p>
+    {FIG_CENTRE.strip()}
+    <p>You can join circles at other places without leaving home. Each place sees only what you allow, and you can take that back at any time. Other places can't see your conversations with the guide.</p>
   </section>
 
   <section>
     <span class="mark earth"></span>
-    <h2>AI you can choose</h2>
-    <p>The guide uses AI language models. Each place chooses which one, and can run its own on its own hardware. Nobody has to depend on one company, including us.</p>
-    <p>The AI helps you think and find your way. People do the teaching and the encouraging.</p>
+    <h2>Moving your home</h2>
+    <p>Your home can change. If you start studying at a college, or move to another town, you can move your home place too, and your record goes with you.</p>
+    {FIG_STORY.strip()}
+    <p>You can also download your record as a file whenever you want.</p>
   </section>
+</div>
 
+<div class="wrap">
+  <section>
+    <span class="mark sky"></span>
+    <h2>Three commitments</h2>
+    <div class="grid">
+      <div class="tile leaf"><h3>Malayalam first</h3><p>Malayalam comes first, including the everyday mix of Malayalam and English. English is something Saho helps with, not a gate to get in. Other languages spoken in Keralam will follow soon.</p></div>
+      <div class="tile earth"><h3>AI you can choose</h3><p>The guide runs on AI language models. Each place chooses which one, and can run its own on its own hardware. Nobody has to depend on one company, including us.</p></div>
+      <div class="tile sky"><h3>Open source</h3><p>Saho will be released as open-source software, so that anyone can inspect it, run it and improve it.</p></div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap narrow">
   <section>
     <span class="mark"></span>
-    <h2>Open source</h2>
-    <p>Saho will be released as open-source software, so that anyone can inspect it, run it and improve it.</p>
+    <h2>Where it stands</h2>
+    <p>Saho is in development, and the first test version is under way. A small pilot with libraries comes next.</p>
+    <div class="btns">
+      <a class="btn primary" href="institutions.html">Run Saho at your institution</a>
+      <a class="btn" href="contact.html">Get in touch</a>
+    </div>
   </section>
 </div>
 """)
