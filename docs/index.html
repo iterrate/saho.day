@@ -24,7 +24,7 @@
 <link rel="preload" href="fonts/crimson-pro-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Saho", "url": "https://saho.day/", "applicationCategory": "EducationalApplication", "inLanguage": ["ml", "en"], "publisher": {"@type": "Organization", "name": "Iterrate (OPC) Private Limited", "url": "https://iterrate.in/"}}</script>
 
-<link rel="stylesheet" href="style.css?v=ea12db22">
+<link rel="stylesheet" href="style.css?v=b5c31306">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -48,31 +48,46 @@
       </div>
     </div>
     <figure class="fed">
-  <svg viewBox="0 0 460 390" role="img" aria-labelledby="fed-cap">
-    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 64H283"/>
-    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M365 100V286"/>
-    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M283 322H177"/>
-    <path class="ln sky" pathLength="100" style="--len:100;--d:1.3s" d="M95 286V100"/>
-    <path class="ln leaf" pathLength="100" style="--len:100;--d:1.7s" d="M177 104L283 282"/>
-    <rect class="place sky" x="20" y="30" width="150" height="66" rx="10"/>
-    <text class="lbl" x="36" y="58">Village library</text>
-    <text class="sub" x="36" y="80">a learner’s home place</text>
-    <rect class="place leaf" x="290" y="30" width="150" height="66" rx="10"/>
-    <text class="lbl" x="306" y="58">College</text>
-    <text class="sub" x="306" y="80">a circle they join</text>
-    <rect class="place earth" x="290" y="290" width="150" height="66" rx="10"/>
-    <text class="lbl" x="306" y="318">Hospital</text>
-    <text class="sub" x="306" y="340">Saho for its staff</text>
-    <rect class="place sky" x="20" y="290" width="150" height="66" rx="10"/>
-    <text class="lbl" x="36" y="318">One person</text>
-    <text class="sub" x="36" y="340">their own Saho</text>
-    <g class="moving">
-      <circle class="me" r="8">
-        <animateMotion dur="7s" repeatCount="indefinite" path="M177 64H283" keyPoints="0;0;1;1" keyTimes="0;.35;.65;1" calcMode="linear"/>
+  <svg viewBox="0 0 460 390" role="img" aria-label="Four linked places: a village library, a college, a hospital and someone's own Saho. A learner starts at the library, joins a circle at the college, then moves their home to the college.">
+    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 70H283"/>
+    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M365 118V272"/>
+    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M283 316H177"/>
+    <path class="ln plain" pathLength="100" style="--len:100;--d:1.3s" d="M95 272V118"/>
+    <rect class="place sky" x="20" y="30" width="150" height="80" rx="10"/>
+    <text class="lbl" x="36" y="60">Village library</text>
+    <rect class="place leaf" x="290" y="30" width="150" height="80" rx="10"/>
+    <text class="lbl" x="306" y="60">College</text>
+    <rect class="place earth" x="290" y="280" width="150" height="80" rx="10"/>
+    <text class="lbl" x="306" y="310">Hospital</text>
+    <rect class="place plain" x="20" y="280" width="150" height="80" rx="10"/>
+    <text class="lbl" x="36" y="310">Your own Saho</text>
+    <text class="sub" x="36" y="334">run by one person</text>
+    <g class="step s2">
+      <path class="dots" d="M50 100C90 205 270 205 314 102"/>
+      <circle class="num" cx="182" cy="182" r="11"/><text class="n" x="182" y="187">2</text>
+    </g>
+    <g class="step s3">
+      <circle class="ring" cx="314" cy="88" r="11"/>
+      <circle class="num" cx="345" cy="88" r="11"/><text class="n" x="345" y="93">3</text>
+    </g>
+    <g class="step s1">
+      <circle class="num" cx="75" cy="88" r="11"/><text class="n" x="75" y="93">1</text>
+    </g>
+    <g class="moving step s1">
+      <circle class="me" cx="44" cy="88" r="8">
+        <animateMotion begin="5.6s" dur="1.6s" fill="freeze" path="M0 0H270" keyPoints="0;1" keyTimes="0;1" keySplines=".45 .05 .35 1" calcMode="spline"/>
       </circle>
     </g>
+    <circle class="still me" cx="44" cy="88" r="8"/>
   </svg>
-  <figcaption id="fed-cap">Each institution runs its own Saho, and they talk to each other. A learner’s record (the dot) goes with them when they join a circle somewhere else.</figcaption>
+  <figcaption>
+    <p>Each institution runs its own Saho, and they are all linked.</p>
+    <ol class="story">
+      <li>A learner joins Saho at their village library. That is their home place.</li>
+      <li>They join a circle at a college nearby. Their home stays at the library.</li>
+      <li>If they move their home to the college, their record moves with them.</li>
+    </ol>
+  </figcaption>
 </figure>
   </div>
 

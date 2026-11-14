@@ -88,31 +88,143 @@ INSTITUTIONS = "a library, a college, a panchayat, a hospital"
 # their library to a college circle. Lines draw on load (CSS), unless reduced motion is set.
 FED = """
 <figure class="fed">
-  <svg viewBox="0 0 460 390" role="img" aria-labelledby="fed-cap">
-    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 64H283"/>
-    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M365 100V286"/>
-    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M283 322H177"/>
-    <path class="ln sky" pathLength="100" style="--len:100;--d:1.3s" d="M95 286V100"/>
-    <path class="ln leaf" pathLength="100" style="--len:100;--d:1.7s" d="M177 104L283 282"/>
-    <rect class="place sky" x="20" y="30" width="150" height="66" rx="10"/>
-    <text class="lbl" x="36" y="58">Village library</text>
-    <text class="sub" x="36" y="80">a learner's home place</text>
-    <rect class="place leaf" x="290" y="30" width="150" height="66" rx="10"/>
-    <text class="lbl" x="306" y="58">College</text>
-    <text class="sub" x="306" y="80">a circle they join</text>
-    <rect class="place earth" x="290" y="290" width="150" height="66" rx="10"/>
-    <text class="lbl" x="306" y="318">Hospital</text>
-    <text class="sub" x="306" y="340">Saho for its staff</text>
-    <rect class="place sky" x="20" y="290" width="150" height="66" rx="10"/>
-    <text class="lbl" x="36" y="318">One person</text>
-    <text class="sub" x="36" y="340">their own Saho</text>
-    <g class="moving">
-      <circle class="me" r="8">
-        <animateMotion dur="7s" repeatCount="indefinite" path="M177 64H283" keyPoints="0;0;1;1" keyTimes="0;.35;.65;1" calcMode="linear"/>
+  <svg viewBox="0 0 460 390" role="img" aria-label="Four linked places: a village library, a college, a hospital and someone's own Saho. A learner starts at the library, joins a circle at the college, then moves their home to the college.">
+    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 70H283"/>
+    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M365 118V272"/>
+    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M283 316H177"/>
+    <path class="ln plain" pathLength="100" style="--len:100;--d:1.3s" d="M95 272V118"/>
+    <rect class="place sky" x="20" y="30" width="150" height="80" rx="10"/>
+    <text class="lbl" x="36" y="60">Village library</text>
+    <rect class="place leaf" x="290" y="30" width="150" height="80" rx="10"/>
+    <text class="lbl" x="306" y="60">College</text>
+    <rect class="place earth" x="290" y="280" width="150" height="80" rx="10"/>
+    <text class="lbl" x="306" y="310">Hospital</text>
+    <rect class="place plain" x="20" y="280" width="150" height="80" rx="10"/>
+    <text class="lbl" x="36" y="310">Your own Saho</text>
+    <text class="sub" x="36" y="334">run by one person</text>
+    <g class="step s2">
+      <path class="dots" d="M50 100C90 205 270 205 314 102"/>
+      <circle class="num" cx="182" cy="182" r="11"/><text class="n" x="182" y="187">2</text>
+    </g>
+    <g class="step s3">
+      <circle class="ring" cx="314" cy="88" r="11"/>
+      <circle class="num" cx="345" cy="88" r="11"/><text class="n" x="345" y="93">3</text>
+    </g>
+    <g class="step s1">
+      <circle class="num" cx="75" cy="88" r="11"/><text class="n" x="75" y="93">1</text>
+    </g>
+    <g class="moving step s1">
+      <circle class="me" cx="44" cy="88" r="8">
+        <animateMotion begin="5.6s" dur="1.6s" fill="freeze" path="M0 0H270" keyPoints="0;1" keyTimes="0;1" keySplines=".45 .05 .35 1" calcMode="spline"/>
       </circle>
     </g>
+    <circle class="still me" cx="44" cy="88" r="8"/>
   </svg>
-  <figcaption id="fed-cap">Each institution runs its own Saho, and they talk to each other. A learner's record (the dot) goes with them when they join a circle somewhere else.</figcaption>
+  <figcaption>
+    <p>Each institution runs its own Saho, and they are all linked.</p>
+    <ol class="story">
+      <li>A learner joins Saho at their village library. That is their home place.</li>
+      <li>They join a circle at a college nearby. Their home stays at the library.</li>
+      <li>If they move their home to the college, their record moves with them.</li>
+    </ol>
+  </figcaption>
+</figure>
+"""
+
+FIG_CENTRE = """
+<figure class="fig centre">
+  <svg viewBox="0 0 520 430" role="img" aria-label="A learner in the centre, with a solid line to their home place, a village library, and a dotted line to a circle at a college. Other places sit around them in a linked ring.">
+    <path class="ln plain faint" d="M260 80L440 190L390 370L130 370L80 190Z"/>
+    <path class="ln" style="stroke:var(--ink)" d="M260 216V100"/>
+    <path class="dots" d="M285 232L420 197"/>
+    <circle class="spot sky" cx="260" cy="80" r="17"/><text class="lbl" x="260" y="46" text-anchor="middle">Village library</text>
+    <circle class="spot leaf" cx="440" cy="190" r="17"/><text class="lbl" x="452" y="150" text-anchor="middle">College</text>
+    <circle class="spot earth" cx="390" cy="370" r="17"/><text class="lbl" x="390" y="414" text-anchor="middle">Hospital</text>
+    <circle class="spot plain" cx="130" cy="370" r="17"/><text class="lbl" x="130" y="414" text-anchor="middle">Your own Saho</text>
+    <circle class="spot sky" cx="80" cy="190" r="17"/><text class="lbl" x="66" y="124" text-anchor="middle">Panchayat</text><text class="lbl" x="66" y="150" text-anchor="middle">libraries</text>
+    <circle class="me" cx="260" cy="240" r="22"/>
+    <text class="lbl" x="260" y="298" text-anchor="middle">A learner</text>
+    <text class="sub" x="260" y="322" text-anchor="middle">and their record</text>
+    <text class="sub" x="272" y="165">home</text>
+    <text class="sub" x="330" y="256">a circle</text>
+  </svg>
+  <figcaption>The learner is at the centre, not a platform. They have one home place (the solid line) and can join circles at other places (the dotted line). The places are linked to each other.</figcaption>
+</figure>
+"""
+
+FIG_CONTRAST = """
+<figure class="fig">
+  <ul class="panels two">
+    <li>
+      <h3>The usual way</h3>
+      <svg viewBox="0 0 400 300" role="img" aria-label="Many learners all connected to one app in the middle.">
+        <g class="dots">
+          <path d="M140 125L60 60"/><path d="M140 150L35 150"/><path d="M140 175L60 240"/>
+          <path d="M260 125L340 60"/><path d="M260 150L365 150"/><path d="M260 175L340 240"/>
+          <path d="M200 115V40"/><path d="M200 185V260"/>
+        </g>
+        <rect class="place plain" x="140" y="115" width="120" height="70" rx="10"/>
+        <text class="lbl" x="200" y="157" text-anchor="middle">One app</text>
+        <g class="me"><circle cx="60" cy="60" r="8"/><circle cx="35" cy="150" r="8"/><circle cx="60" cy="240" r="8"/><circle cx="340" cy="60" r="8"/><circle cx="365" cy="150" r="8"/><circle cx="340" cy="240" r="8"/><circle cx="200" cy="40" r="8"/><circle cx="200" cy="260" r="8"/></g>
+      </svg>
+      <p>Everyone's learning sits with one company.</p>
+    </li>
+    <li>
+      <h3>Saho</h3>
+      <svg viewBox="0 0 400 300" role="img" aria-label="Four places, a library, a college, a hospital and someone's own Saho, linked to each other, each with its own learners.">
+        <path class="ln plain faint" d="M100 85L300 70M100 85L130 225M300 70L320 215M130 225L320 215"/>
+        <circle class="spot sky" cx="100" cy="85" r="20"/><text class="sub" x="100" y="45" text-anchor="middle">Library</text>
+        <circle class="spot leaf" cx="300" cy="70" r="20"/><text class="sub" x="300" y="30" text-anchor="middle">College</text>
+        <circle class="spot earth" cx="320" cy="215" r="20"/><text class="sub" x="320" y="268" text-anchor="middle">Hospital</text>
+        <circle class="spot plain" cx="130" cy="225" r="20"/><text class="sub" x="130" y="278" text-anchor="middle">Your own</text>
+        <g class="me"><circle cx="60" cy="110" r="7"/><circle cx="55" cy="70" r="7"/><circle cx="340" cy="55" r="7"/><circle cx="335" cy="100" r="7"/><circle cx="360" cy="195" r="7"/><circle cx="95" cy="245" r="7"/></g>
+      </svg>
+      <p>Each place is run locally, and they are all linked.</p>
+    </li>
+  </ul>
+</figure>
+"""
+
+FIG_STORY = """
+<figure class="fig">
+  <ol class="panels">
+    <li>
+      <h3>1 · Join</h3>
+      <svg viewBox="0 0 260 190" role="img" aria-label="A learner inside a village library.">
+        <rect class="place sky" x="20" y="30" width="220" height="130" rx="10"/>
+        <text class="lbl" x="40" y="68">Village library</text>
+        <circle class="me" cx="60" cy="120" r="11"/>
+      </svg>
+      <p>A learner joins at their village library. Their account and record live there.</p>
+    </li>
+    <li>
+      <h3>2 · Learn with others</h3>
+      <svg viewBox="0 0 260 190" role="img" aria-label="The learner stays in the library, with a dotted line to a circle at a college.">
+        <path class="ln plain" d="M117 70H143"/>
+        <rect class="place sky" x="10" y="30" width="105" height="130" rx="10"/>
+        <text class="lbl" x="24" y="66">Library</text>
+        <rect class="place leaf" x="145" y="30" width="105" height="130" rx="10"/>
+        <text class="lbl" x="159" y="66">College</text>
+        <path class="dots" d="M52 132C80 182 180 182 205 132"/>
+        <circle class="me" cx="40" cy="120" r="11"/>
+        <circle class="spot leaf" cx="205" cy="118" r="9" style="stroke-width:3"/>
+      </svg>
+      <p>They join a circle at a college nearby. Their home doesn't change.</p>
+    </li>
+    <li>
+      <h3>3 · Move, if they want</h3>
+      <svg viewBox="0 0 260 190" role="img" aria-label="The learner has moved into the college, with an arrow from the library.">
+        <rect class="place sky" x="10" y="30" width="105" height="130" rx="10"/>
+        <text class="lbl" x="24" y="66">Library</text>
+        <rect class="place leaf" x="145" y="30" width="105" height="130" rx="10"/>
+        <text class="lbl" x="159" y="66">College</text>
+        <path class="ln plain" d="M60 120H170"/>
+        <path class="ln plain" d="M170 120L160 110"/>
+        <circle class="me" cx="190" cy="120" r="11"/>
+      </svg>
+      <p>If they move their home, their record goes with them.</p>
+    </li>
+  </ol>
 </figure>
 """
 
@@ -186,12 +298,15 @@ f"""
     <li><h2>Learn with a circle</h2><p>Meet other learners at your library or college, in person and online. Helpers explain, review and encourage, and you can thank them.</p></li>
     <li><h2>Take it with you</h2><p>Your record of what you've learned belongs to you. Move it to another place, or download it, whenever you choose.</p></li>
   </ol>
+  {FIG_CENTRE.strip()}
 
   <section>
     <span class="mark sky"></span>
     <h2>Places, not a platform</h2>
     <p>Saho isn't one website. Any institution ({INSTITUTIONS}) can run its own Saho, which we call a <em>place</em>. Places talk to each other, so a learner at a village library can join a circle at a college nearby.</p>
+    {FIG_CONTRAST.strip()}
     <p>Every learner has one home place for their account and record. They decide what each place can see, and they can take that back. Private conversations with the guide stay in their home place.</p>
+    {FIG_STORY.strip()}
     <p>One Saho can serve every library in a panchayat. A single person can also run their own, and join an institution later, or leave it.</p>
   </section>
 
