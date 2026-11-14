@@ -96,10 +96,10 @@ FED = """
     <path class="ln leaf" pathLength="100" style="--len:100;--d:1.7s" d="M177 104L283 282"/>
     <rect class="place sky" x="20" y="30" width="150" height="66" rx="10"/>
     <text class="lbl" x="36" y="58">Village library</text>
-    <text class="sub" x="36" y="80">Anu's home place</text>
+    <text class="sub" x="36" y="80">a learner's home place</text>
     <rect class="place leaf" x="290" y="30" width="150" height="66" rx="10"/>
     <text class="lbl" x="306" y="58">College</text>
-    <text class="sub" x="306" y="80">a circle she joins</text>
+    <text class="sub" x="306" y="80">a circle they join</text>
     <rect class="place earth" x="290" y="290" width="150" height="66" rx="10"/>
     <text class="lbl" x="306" y="318">Hospital</text>
     <text class="sub" x="306" y="340">Saho for its staff</text>
@@ -112,7 +112,7 @@ FED = """
       </circle>
     </g>
   </svg>
-  <figcaption id="fed-cap">Each institution runs its own Saho, and they talk to each other. Anu's record (the dot) goes with her when she joins a circle somewhere else.</figcaption>
+  <figcaption id="fed-cap">Each institution runs its own Saho, and they talk to each other. A learner's record (the dot) goes with them when they join a circle somewhere else.</figcaption>
 </figure>
 """
 
@@ -124,7 +124,7 @@ f"""
   <div class="home-top">
     <div>
       <h1><span class="hero-ml" lang="ml">ഒരുമിച്ച് പഠിക്കാം</span>Learn at your own pace, with people <em>near you</em>.</h1>
-      <p class="lede">Saho is a guide and a circle for people learning on their own, at any stage of life. It helps you work out what to learn next, and finds you people to learn it with, in Malayalam, English or Manglish.</p>
+      <p class="lede">Saho is a guide and a circle for people learning on their own, at any stage of life. It helps you work out what to learn next, and finds you people to learn it with, in Malayalam, English or a mix of both.</p>
       <div class="btns">
         <a class="btn primary" href="how-it-works.html">How it works</a>
         <a class="btn" href="institutions.html">For institutions</a>
@@ -198,7 +198,7 @@ f"""
   <section>
     <span class="mark"></span>
     <h2>Malayalam first</h2>
-    <p>Malayalam and Manglish come first, not as an afterthought. English is something Saho helps with, not a gate to get in. Other languages spoken in Keralam can follow.</p>
+    <p>Malayalam comes first, including the everyday mix of Malayalam and English, not as an afterthought. English is something Saho helps with, not a gate to get in. Other languages spoken in Keralam will follow soon.</p>
   </section>
 
   <section>
@@ -266,7 +266,7 @@ f"""
   <section class="page-top">
     <span class="mark sky"></span>
     <h1>Get in touch</h1>
-    <p class="lede">Want to try Saho, run it at your institution, or help build it? Write in Malayalam or English.</p>
+    <p class="lede">Want to try Saho, run it at your institution, or help build it? We'd like to hear from you.</p>
   </section>
 
   <section>
