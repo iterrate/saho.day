@@ -66,6 +66,7 @@ FOOT = """</main>
   <div class="wrap">
     <picture><source srcset="iterrate-icon-dark.svg" media="(prefers-color-scheme: dark)"><img src="iterrate-icon.svg" alt="" width="44" height="44"></picture>
     <div>
+      <p class="name-note"><em>Saho</em> is a call to work together, named for Sahodaran Ayyappan and his ideals of fraternity and equality. <em>saho.day</em> reads as <em>sahoday</em>: rising together.</p>
       <p>Saho is built by <a href="https://iterrate.in">Iterrate (OPC) Private Limited</a>, Thiruvananthapuram.</p>
       <p><a href="mailto:{email}">{email}</a></p>
     </div>
@@ -88,46 +89,27 @@ INSTITUTIONS = "a library, a college, a panchayat, a hospital"
 # their library to a college circle. Lines draw on load (CSS), unless reduced motion is set.
 FED = """
 <figure class="fed">
-  <svg viewBox="0 0 460 390" role="img" aria-label="Four linked places: a village library, a college, a hospital and someone's own Saho. A learner starts at the library, joins a circle at the college, then moves their home to the college.">
-    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 70H283"/>
-    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M365 118V272"/>
-    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M283 316H177"/>
-    <path class="ln plain" pathLength="100" style="--len:100;--d:1.3s" d="M95 272V118"/>
-    <rect class="place sky" x="20" y="30" width="150" height="80" rx="10"/>
-    <text class="lbl" x="36" y="60">Village library</text>
-    <rect class="place leaf" x="290" y="30" width="150" height="80" rx="10"/>
-    <text class="lbl" x="306" y="60">College</text>
-    <rect class="place earth" x="290" y="280" width="150" height="80" rx="10"/>
-    <text class="lbl" x="306" y="310">Hospital</text>
-    <rect class="place plain" x="20" y="280" width="150" height="80" rx="10"/>
-    <text class="lbl" x="36" y="310">Your own Saho</text>
-    <text class="sub" x="36" y="334">run by one person</text>
+  <svg viewBox="0 0 460 370" role="img" aria-label="Four linked places: a village library, a college, a hospital and someone's own Saho. A learner at the library has a dotted link to a circle at the college.">
+    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 52H283"/>
+    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M365 108V282"/>
+    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M283 325H177"/>
+    <path class="ln plain" pathLength="100" style="--len:100;--d:1.3s" d="M95 282V108"/>
+    <rect class="place sky" x="20" y="30" width="150" height="70" rx="10"/>
+    <text class="lbl" x="36" y="58">Village library</text>
+    <rect class="place leaf" x="290" y="30" width="150" height="70" rx="10"/>
+    <text class="lbl" x="306" y="58">College</text>
+    <rect class="place earth" x="290" y="290" width="150" height="70" rx="10"/>
+    <text class="lbl" x="306" y="318">Hospital</text>
+    <rect class="place plain" x="20" y="290" width="150" height="70" rx="10"/>
+    <text class="lbl" x="36" y="318">Your own Saho</text>
+    <text class="sub" x="36" y="342">run by one person</text>
     <g class="step s2">
-      <path class="dots" d="M50 100C90 205 270 205 314 102"/>
-      <circle class="num" cx="182" cy="182" r="11"/><text class="n" x="182" y="187">2</text>
+      <path class="dots" d="M164 82H298"/>
+      <circle class="ring" cx="310" cy="82" r="8"/>
     </g>
-    <g class="step s3">
-      <circle class="ring" cx="314" cy="88" r="11"/>
-      <circle class="num" cx="345" cy="88" r="11"/><text class="n" x="345" y="93">3</text>
-    </g>
-    <g class="step s1">
-      <circle class="num" cx="75" cy="88" r="11"/><text class="n" x="75" y="93">1</text>
-    </g>
-    <g class="moving step s1">
-      <circle class="me" cx="44" cy="88" r="8">
-        <animateMotion begin="5.6s" dur="1.6s" fill="freeze" path="M0 0H270" keyPoints="0;1" keyTimes="0;1" keySplines=".45 .05 .35 1" calcMode="spline"/>
-      </circle>
-    </g>
-    <circle class="still me" cx="44" cy="88" r="8"/>
+    <circle class="me step s1" cx="150" cy="82" r="8"/>
   </svg>
-  <figcaption>
-    <p>Each institution runs its own Saho, and they are all linked.</p>
-    <ol class="story">
-      <li>A learner joins Saho at their village library. That is their home place.</li>
-      <li>They join a circle at a college nearby. Their home stays at the library.</li>
-      <li>If they move their home to the college, their record moves with them.</li>
-    </ol>
-  </figcaption>
+  <figcaption>Each institution runs its own Saho, and they are all linked. Here, a learner whose home is the village library has joined a circle at the college.</figcaption>
 </figure>
 """
 
@@ -271,14 +253,6 @@ f"""
   </div>
 </div>
 
-<div class="wrap narrow">
-  <section class="name">
-    <span class="mark earth"></span>
-    <h2>The name</h2>
-    <p><em>Saho</em> is a call to work together, named for Sahodaran Ayyappan and his ideals of fraternity and equality.</p>
-    <p><em>saho.day</em> reads as <em>sahoday</em>: rising together.</p>
-  </section>
-</div>
 """)
 
 # ---------------------------------------------------------------- How it works
@@ -292,11 +266,11 @@ f"""
     <p class="lede">Saho gives you three things: a guide to help you plan, a circle of people to learn with, and a record of what you've learned that stays yours. Many institutions run Saho, and their places are linked.</p>
   </section>
 
-  <ol class="principles">
-    <li><h2>Start with a conversation</h2><p>The guide is an AI assistant. Tell it what you do now, what you enjoy and what you're unsure about, in Malayalam, English or a mix of both. It keeps notes on what you already know and what you're curious about. You can read those notes and correct them.</p></li>
-    <li><h2>Get a plan for this month</h2><p>Small steps you can take: something to watch, something to read (often from your library's shelf), something to try in your own work, and a time to look back on how it went.</p></li>
-    <li><h2>Learn with a circle</h2><p>Meet other learners in person at your library or college, or online with people anywhere. Helpers explain, review and encourage, and you can thank them. The guide helps you find your way, but people do the teaching.</p></li>
-    <li><h2>Take it with you</h2><p>Your record of what you've learned belongs to you. Move it to another place, or download it, whenever you choose.</p></li>
+  <ol class="steps">
+    <li><h2>Talk to the guide</h2><p>The guide is an AI assistant. Tell it what you do, what you enjoy and what you're unsure about. You can read and correct its notes on you.</p></li>
+    <li><h2>Get a plan</h2><p>Small steps for this month: something to watch, read or try, and a time to look back on how it went.</p></li>
+    <li><h2>Learn with a circle</h2><p>Meet learners at your library or college, or online with people anywhere. Helpers explain and encourage, so the teaching comes from people.</p></li>
+    <li><h2>Take it with you</h2><p>Your record belongs to you. Move it to another place, or download it, whenever you choose.</p></li>
   </ol>
 
   <section>
