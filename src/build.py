@@ -19,12 +19,13 @@ EMAIL = "hello@saho.day"
 NAV = [
     ("./", "Home"),
     ("how-it-works.html", "How it works"),
-    ("institutions.html", "For institutions"),
+    ("institutions.html", "Institutions"),
+    ("about.html", "About"),
     ("contact.html", "Contact"),
 ]
 
 HEAD = """<!DOCTYPE html>
-<html lang="en-IN">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,8 +37,12 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{url}">
-<meta property="og:locale" content="en_IN">
-<meta name="twitter:card" content="summary">
+<meta property="og:locale" content="{locale}">
+<meta property="og:image" content="{base}og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Saho: Learn on your own terms, together. Four linked places: a village library, a college, a hospital and someone's own Saho.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F6F3EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#282D2A" media="(prefers-color-scheme: dark)">
 <meta name="darkreader-lock">
@@ -72,6 +77,7 @@ FOOT = """</main>
     <ul>
       <li><a href="https://iterrate.in/company.html">Company details</a></li>
       <li><a href="contact.html#privacy">Privacy</a></li>
+      <li>{langlink}</li>
       <li>© {year} Iterrate</li>
     </ul>
   </div>
@@ -88,47 +94,98 @@ INSTITUTIONS = "a library, a college, a panchayat, a hospital"
 # their library to a college circle. Lines draw on load (CSS), unless reduced motion is set.
 FED = """
 <figure class="fed">
-  <svg viewBox="0 0 460 390" role="img" aria-labelledby="fed-cap">
-    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M177 64H283"/>
-    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M365 100V286"/>
-    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M283 322H177"/>
-    <path class="ln sky" pathLength="100" style="--len:100;--d:1.3s" d="M95 286V100"/>
-    <path class="ln leaf" pathLength="100" style="--len:100;--d:1.7s" d="M177 104L283 282"/>
-    <rect class="place sky" x="20" y="30" width="150" height="66" rx="10"/>
-    <text class="lbl" x="36" y="58">Village library</text>
-    <text class="sub" x="36" y="80">a learner's home place</text>
-    <rect class="place leaf" x="290" y="30" width="150" height="66" rx="10"/>
-    <text class="lbl" x="306" y="58">College</text>
-    <text class="sub" x="306" y="80">a circle they join</text>
-    <rect class="place earth" x="290" y="290" width="150" height="66" rx="10"/>
-    <text class="lbl" x="306" y="318">Hospital</text>
-    <text class="sub" x="306" y="340">Saho for its staff</text>
-    <rect class="place sky" x="20" y="290" width="150" height="66" rx="10"/>
-    <text class="lbl" x="36" y="318">One person</text>
-    <text class="sub" x="36" y="340">their own Saho</text>
-    <g class="moving">
-      <circle class="me" r="8">
-        <animateMotion dur="7s" repeatCount="indefinite" path="M177 64H283" keyPoints="0;0;1;1" keyTimes="0;.35;.65;1" calcMode="linear"/>
-      </circle>
+  <svg viewBox="0 0 440 356" role="img" aria-label="Four linked places: a village library, a college, a hospital and someone's own Saho. A learner at the library has a dotted link to a circle at the college.">
+    <path class="ln sky" pathLength="100" style="--len:100;--d:.1s" d="M188 44H252"/>
+    <path class="ln leaf" pathLength="100" style="--len:100;--d:.5s" d="M345 104V262"/>
+    <path class="ln earth" pathLength="100" style="--len:100;--d:.9s" d="M252 308H188"/>
+    <path class="ln plain" pathLength="100" style="--len:100;--d:1.3s" d="M95 262V104"/>
+    <rect class="place sky" x="10" y="20" width="170" height="76" rx="10"/>
+    <text class="lbl" x="26" y="50">Village library</text>
+    <rect class="place leaf" x="260" y="20" width="170" height="76" rx="10"/>
+    <text class="lbl" x="276" y="50">College</text>
+    <rect class="place earth" x="260" y="270" width="170" height="76" rx="10"/>
+    <text class="lbl" x="276" y="300">Hospital</text>
+    <rect class="place plain" x="10" y="270" width="170" height="76" rx="10"/>
+    <text class="lbl" x="26" y="300">Your own Saho</text>
+    <text class="sub" x="26" y="324">run by one person</text>
+    <g class="step s2">
+      <path class="dots" d="M176 76H274"/>
+      <circle class="ring" cx="286" cy="76" r="9"/>
     </g>
+    <circle class="me step s1" cx="160" cy="76" r="9"/>
   </svg>
-  <figcaption id="fed-cap">Each institution runs its own Saho, and they talk to each other. A learner's record (the dot) goes with them when they join a circle somewhere else.</figcaption>
+  <figcaption>Each institution runs its own Saho, and they are all linked. For example, here a learner whose home is the village library has joined a circle at the college.</figcaption>
+</figure>
+"""
+
+FIG_CENTRE = """
+<figure class="fig centre">
+  <svg viewBox="0 0 520 430" role="img" aria-label="A learner in the centre, with a solid line to their home place, a village library, and a dotted line to a circle at a college. Other places sit around them in a linked ring.">
+    <path class="ln plain faint" d="M260 80L440 190L390 370L130 370L80 190Z"/>
+    <path class="ln" style="stroke:var(--ink)" d="M260 216V100"/>
+    <path class="dots" d="M285 232L420 197"/>
+    <circle class="spot sky" cx="260" cy="80" r="17"/><text class="lbl" x="260" y="46" text-anchor="middle">Village library</text>
+    <circle class="spot leaf" cx="440" cy="190" r="17"/><text class="lbl" x="452" y="150" text-anchor="middle">College</text>
+    <circle class="spot earth" cx="390" cy="370" r="17"/><text class="lbl" x="390" y="414" text-anchor="middle">Hospital</text>
+    <circle class="spot plain" cx="130" cy="370" r="17"/><text class="lbl" x="130" y="414" text-anchor="middle">Your own Saho</text>
+    <circle class="spot sky" cx="80" cy="190" r="17"/><text class="lbl" x="66" y="124" text-anchor="middle">Panchayat</text><text class="lbl" x="66" y="150" text-anchor="middle">libraries</text>
+    <circle class="me" cx="260" cy="240" r="22"/>
+    <text class="lbl" x="260" y="298" text-anchor="middle">A learner</text>
+    <text class="sub" x="260" y="322" text-anchor="middle">and their record</text>
+    <text class="sub" x="272" y="165">home</text>
+    <text class="sub" x="330" y="256">a circle</text>
+  </svg>
+  <figcaption>The learner is at the centre, not a platform. The solid line goes to their home place. The dotted line goes to a circle they joined somewhere else.</figcaption>
+</figure>
+"""
+
+FIG_CONTRAST = """
+<figure class="fig">
+  <ul class="panels two">
+    <li>
+      <h3>The usual way</h3>
+      <svg viewBox="0 0 400 300" role="img" aria-label="Many learners all connected to one app in the middle.">
+        <g class="dots">
+          <path d="M140 125L60 60"/><path d="M140 150L35 150"/><path d="M140 175L60 240"/>
+          <path d="M260 125L340 60"/><path d="M260 150L365 150"/><path d="M260 175L340 240"/>
+          <path d="M200 115V40"/><path d="M200 185V260"/>
+        </g>
+        <rect class="place plain" x="140" y="115" width="120" height="70" rx="10"/>
+        <text class="lbl" x="200" y="157" text-anchor="middle">One app</text>
+        <g class="me"><circle cx="60" cy="60" r="8"/><circle cx="35" cy="150" r="8"/><circle cx="60" cy="240" r="8"/><circle cx="340" cy="60" r="8"/><circle cx="365" cy="150" r="8"/><circle cx="340" cy="240" r="8"/><circle cx="200" cy="40" r="8"/><circle cx="200" cy="260" r="8"/></g>
+      </svg>
+      <p>Everyone's learning sits with one company.</p>
+    </li>
+    <li>
+      <h3>Saho</h3>
+      <svg viewBox="0 0 400 300" role="img" aria-label="Four places, a library, a college, a hospital and someone's own Saho, linked to each other, each with its own learners.">
+        <path class="ln plain faint" d="M100 85L300 70M100 85L130 225M300 70L320 215M130 225L320 215"/>
+        <circle class="spot sky" cx="100" cy="85" r="20"/><text class="sub" x="100" y="45" text-anchor="middle">Library</text>
+        <circle class="spot leaf" cx="300" cy="70" r="20"/><text class="sub" x="300" y="30" text-anchor="middle">College</text>
+        <circle class="spot earth" cx="320" cy="215" r="20"/><text class="sub" x="320" y="268" text-anchor="middle">Hospital</text>
+        <circle class="spot plain" cx="130" cy="225" r="20"/><text class="sub" x="130" y="278" text-anchor="middle">Your own</text>
+        <g class="me"><circle cx="60" cy="110" r="7"/><circle cx="55" cy="70" r="7"/><circle cx="340" cy="55" r="7"/><circle cx="335" cy="100" r="7"/><circle cx="360" cy="195" r="7"/><circle cx="95" cy="245" r="7"/></g>
+      </svg>
+      <p>Each place is run locally, and they are all linked.</p>
+    </li>
+  </ul>
 </figure>
 """
 
 # ---------------------------------------------------------------- Home
-PAGES["index.html"] = ("Saho · Learn at your own pace, with people near you",
+PAGES["index.html"] = ("Saho · Learn on your own terms, together",
 "Saho is an open, federated learning platform in Malayalam and English. Any institution can run its own Saho, and learners keep what they learn.",
 f"""
 <div class="wrap">
   <div class="home-top">
     <div>
-      <h1><span class="hero-ml" lang="ml">ഒരുമിച്ച് പഠിക്കാം</span>Learn at your own pace, with people <em>near you</em>.</h1>
-      <p class="lede">Saho is a guide and a circle for people learning on their own, at any stage of life. It helps you work out what to learn next, and finds you people to learn it with, in Malayalam, English or a mix of both.</p>
+      <h1><span class="hero-ml" lang="ml">ഒരുമിച്ച് പഠിക്കാം</span>Learn on your own terms, <em>together</em>.</h1>
+      <p class="lede">Saho is a guide and a gathering place for people learning on their own, at any stage of life. It helps you work out what to learn next, and finds you people to learn it with, in Malayalam, English or a mix of both.</p>
       <div class="btns">
         <a class="btn primary" href="how-it-works.html">How it works</a>
         <a class="btn" href="institutions.html">For institutions</a>
       </div>
+      <p class="status">In development. A pilot with libraries comes next. <a href="ml.html" lang="ml">മലയാളത്തിൽ വായിക്കാം</a></p>
     </div>
     {FED.strip()}
   </div>
@@ -137,15 +194,15 @@ f"""
     <div class="grid">
       <div class="tile leaf">
         <h2>A guide</h2>
-        <p>Talk things through in the language you think in. The guide suggests next steps and resources, including books on your library's shelf. It doesn't lecture.</p>
+        <p>An AI assistant you can talk things through with, in the language you think in. It suggests next steps and resources, including books on your library's shelf. It doesn't lecture.</p>
       </div>
       <div class="tile sky">
         <h2>Circles</h2>
-        <p>Small groups of learners who meet where they are, online and in person. Helpers from the community explain, review and encourage.</p>
+        <p>Small groups of learners who meet where they are, online or in person. Helpers from the community explain, review and encourage.</p>
       </div>
       <div class="tile earth">
         <h2>Your record</h2>
-        <p>What you learn and what you say belong to you. Places see only what you allow, and you can take it with you.</p>
+        <p>What you learn and what you say belong to you. Places see only what you allow. Take it with you wherever you go, or delete it completely.</p>
       </div>
     </div>
   </section>
@@ -153,65 +210,72 @@ f"""
 
 <div class="band">
   <div class="wrap">
-    <p class="big"><em>For finding a direction, not cramming for one exam.</em></p>
+    <p class="big"><em>For finding your own direction.</em></p>
     <p>Think of a recent graduate doing part-time work, unsure of what comes next. Saho is for exploring your world, your skills and what's possible, at your own pace.</p>
     <p><a href="how-it-works.html">See how it works</a></p>
   </div>
 </div>
 
-<div class="wrap narrow">
-  <section class="name">
-    <span class="mark earth"></span>
-    <h2>The name</h2>
-    <p><em>Saho</em> is a call to work together, named for Sahodaran Ayyappan and his ideals of fraternity and equality.</p>
-    <p><em>saho.day</em> reads as <em>sahoday</em>: rising together.</p>
-  </section>
-</div>
 """)
 
 # ---------------------------------------------------------------- How it works
 PAGES["how-it-works.html"] = ("How Saho works",
-"How Saho works: a guide, circles, shared learning paths and a record you own, across places run by different institutions.",
+"How Saho works: a guide, circles and a record you own, across places run by different institutions and linked to each other.",
 f"""
 <div class="wrap narrow">
   <section class="page-top">
     <span class="mark"></span>
     <h1>How Saho works</h1>
-    <p class="lede">You talk to a guide, learn with a circle, and keep a record of what you've learned. Different institutions run Saho, and they are all connected.</p>
+    <p class="lede">Saho gives you three things: a guide to help you plan, a circle of people to learn with, and a record of what you've learned that stays yours. Many institutions run Saho, and their places are linked.</p>
   </section>
 
-  <ol class="principles">
-    <li><h2>Start with a conversation</h2><p>Tell the guide what you do now, what you enjoy and what you're unsure about, in Malayalam, English or a mix of both. It notes what you already know and what you're curious about, and you correct it when it gets you wrong.</p></li>
-    <li><h2>Get a plan for this month</h2><p>Small steps you can take: something to watch, something to read (often from your library's shelf), something to try in your own work, and a time to look back on how it went.</p></li>
-    <li><h2>Learn with a circle</h2><p>Meet other learners at your library or college, in person and online. Helpers explain, review and encourage, and you can thank them.</p></li>
-    <li><h2>Take it with you</h2><p>Your record of what you've learned belongs to you. Move it to another place, or download it, whenever you choose.</p></li>
+  <ol class="steps">
+    <li><h2>Talk to the guide</h2><p>The guide is an AI assistant. Tell it what you do, what you enjoy and what you're unsure about. You can read and correct its notes on you.</p></li>
+    <li><h2>Get a plan</h2><p>Small steps for this month: something to watch, read or try, and a time to look back on how it went.</p></li>
+    <li><h2>Learn with a circle</h2><p>Meet learners at your library or college, or online with people anywhere. Helpers explain and encourage, so the teaching comes from people.</p></li>
+    <li><h2>Take it with you</h2><p>Your record belongs to you. Move it to another place, download it or delete it, whenever you choose.</p></li>
   </ol>
 
   <section>
     <span class="mark sky"></span>
     <h2>Places, not a platform</h2>
-    <p>Saho isn't one website. Any institution ({INSTITUTIONS}) can run its own Saho, which we call a <em>place</em>. Places talk to each other, so a learner at a village library can join a circle at a college nearby.</p>
-    <p>Every learner has one home place for their account and record. They decide what each place can see, and they can take that back. Private conversations with the guide stay in their home place.</p>
+    <p>Saho isn't one website. Any institution ({INSTITUTIONS}) can run its own Saho, which we call a <em>place</em>. Places are linked to each other, so a learner at one place can learn with people at another.</p>
+    {FIG_CONTRAST.strip()}
+    <p>Places also share what works, such as learning paths and ways of learning in a circle, with credit to the people who made them.</p>
     <p>One Saho can serve every library in a panchayat. A single person can also run their own, and join an institution later, or leave it.</p>
   </section>
 
   <section>
     <span class="mark"></span>
-    <h2>Malayalam first</h2>
-    <p>Malayalam comes first, including the everyday mix of Malayalam and English, not as an afterthought. English is something Saho helps with, not a gate to get in. Other languages spoken in Keralam will follow soon.</p>
+    <h2>One home, many circles</h2>
+    <p>Every learner has one home place. Your account, your record and your conversations with the guide are kept there.</p>
+    {FIG_CENTRE.strip()}
+    <p>You can join circles at other places without leaving home. Each place sees only what you allow, and you can take that back at any time. Other places can't see your conversations with the guide.</p>
+    <p>If you move, to a college or to another town, you can move your home place too, and your record goes with you. You can also download it as a file whenever you want.</p>
   </section>
+</div>
 
+<div class="wrap">
   <section>
-    <span class="mark earth"></span>
-    <h2>AI you can choose</h2>
-    <p>The guide uses AI language models. Each place chooses which one, and can run its own on its own hardware. Nobody has to depend on one company, including us.</p>
-    <p>The AI helps you think and find your way. People do the teaching and the encouraging.</p>
+    <span class="mark sky"></span>
+    <h2>Three commitments</h2>
+    <div class="grid">
+      <div class="tile leaf"><h3>Malayalam first</h3><p>Malayalam comes first, including the everyday mix of Malayalam and English. English is something Saho helps with, not a gate to get in. Other languages spoken in Keralam will follow soon.</p></div>
+      <div class="tile earth"><h3>AI you can choose</h3><p>The guide runs on large language models (LLMs), the kind of AI behind chat assistants. Each place chooses which one, and can run its own on its own hardware. Nobody has to depend on one company, including us.</p></div>
+      <div class="tile sky"><h3>Open source</h3><p>Saho will be released as open-source software, so that anyone can inspect it, run it and improve it.</p></div>
+    </div>
   </section>
+</div>
 
+<div class="wrap narrow">
   <section>
     <span class="mark"></span>
-    <h2>Open source</h2>
-    <p>Saho will be released as open-source software, so that anyone can inspect it, run it and improve it.</p>
+    <h2>Where it stands</h2>
+    <p>Saho is in development, and the first test version is under way. A small pilot with libraries comes next.</p>
+    <div class="btns">
+      <a class="btn primary" href="institutions.html">Run Saho at your institution</a>
+      <a class="btn" href="contact.html">Get in touch</a>
+    </div>
   </section>
 </div>
 """)
@@ -231,7 +295,7 @@ f"""
     <div class="grid two">
       <div class="tile sky"><h2>Libraries</h2><p>A reading room becomes a place to learn with others. Saho points learners to books on your own shelves.</p></div>
       <div class="tile earth"><h2>Panchayats</h2><p>One Saho can serve every library in a panchayat, with local resources and local priorities.</p></div>
-      <div class="tile leaf"><h2>Colleges</h2><p>Students and alumni keep learning beyond the syllabus. Your college decides how learning works on its place.</p></div>
+      <div class="tile leaf"><h2>Colleges</h2><p>Students and alumni keep learning beyond the syllabus. Your college decides how learning works at its place.</p></div>
       <div class="tile sky"><h2>Any organisation</h2><p>A hospital could run Saho to help its staff keep learning. So could a cooperative, a club or a company.</p></div>
     </div>
   </section>
@@ -260,13 +324,13 @@ f"""
 
 # ---------------------------------------------------------------- Contact
 PAGES["contact.html"] = ("Contact · Saho",
-"Write to the people building Saho, in Malayalam or English. Includes our privacy note: no cookies, no analytics.",
+"Write to the people building Saho. Includes our privacy note: no cookies, no analytics.",
 f"""
 <div class="wrap narrow">
   <section class="page-top">
     <span class="mark sky"></span>
     <h1>Get in touch</h1>
-    <p class="lede">Want to try Saho, run it at your institution, or help build it? We'd like to hear from you.</p>
+    <p class="lede">Want to try Saho when it's ready, run it at your institution, or help build it? We'd like to hear from you.</p>
   </section>
 
   <section>
@@ -280,8 +344,97 @@ f"""
   <section id="privacy">
     <span class="mark earth"></span>
     <h2>Privacy</h2>
-    <p>This site sets no cookies and uses no analytics or trackers. It is hosted on GitHub Pages, and GitHub logs visitors' IP addresses for security (see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>). Our email is handled by Zoho Mail.</p>
+    <p>This site sets no cookies and uses no analytics or trackers. It is hosted on GitHub Pages, and GitHub logs visitors' IP addresses for security (see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>). Email to {EMAIL} is forwarded by Cloudflare to our inbox at Zoho Mail.</p>
     <p>If you write to us, we use your email address and what you tell us only to reply. We don't share it with anyone, and we delete it when you ask.</p>
+  </section>
+</div>
+""")
+
+# ---------------------------------------------------------------- Malayalam home
+FED_ML = (FED
+    .replace('<text class="lbl" x="26" y="50">Village library</text>', '<text class="lbl" x="26" y="52">വായനശാല</text>')
+    .replace('<text class="lbl" x="276" y="50">College</text>', '<text class="lbl" x="276" y="52">കോളേജ്</text>')
+    .replace('<text class="lbl" x="276" y="300">Hospital</text>', '<text class="lbl" x="276" y="302">ആശുപത്രി</text>')
+    .replace('<text class="lbl" x="26" y="300">Your own Saho</text>', '<text class="lbl" x="26" y="302">സ്വന്തം സഹോ</text>')
+    .replace('<text class="sub" x="26" y="324">run by one person</text>', '<text class="sub" x="26" y="326">ഒരാൾ നടത്തുന്നത്</text>')
+    .replace('aria-label="Four linked places: a village library, a college, a hospital and someone\'s own Saho. A learner at the library has a dotted link to a circle at the college."',
+             'aria-label="പരസ്പരം ബന്ധിപ്പിച്ച നാല് ഇടങ്ങൾ: ഒരു ഗ്രാമീണ വായനശാല, ഒരു കോളേജ്, ഒരു ആശുപത്രി, ഒരാളുടെ സ്വന്തം സഹോ. വായനശാലയിലുള്ള ഒരു പഠിതാവിന് കോളേജിലെ ഒരു കൂട്ടവുമായി ബന്ധമുണ്ട്."')
+    .replace('<figcaption>Each institution runs its own Saho, and they are all linked. For example, here a learner whose home is the village library has joined a circle at the college.</figcaption>',
+             '<figcaption>ഓരോ സ്ഥാപനവും സ്വന്തം സഹോ നടത്തുന്നു, അവയെല്ലാം പരസ്പരം ബന്ധപ്പെട്ടിരിക്കുന്നു. ഉദാഹരണത്തിന്, ഇവിടെ, ഗ്രാമീണ വായനശാലയിൽ അംഗമായ ഒരു പഠിതാവ് കോളേജിലെ ഒരു കൂട്ടത്തിൽ ചേർന്നിരിക്കുന്നു.</figcaption>'))
+assert FED_ML.count("ഗ്രാമീണ") == 2 and "Village library" not in FED_ML
+
+PAGES["ml.html"] = ("സഹോ · ഇഷ്ടമുള്ളത്, ഇഷ്ടമുള്ളപോലെ, ഒരുമിച്ച് പഠിക്കാം",
+"സ്വയം പഠിക്കുന്നവർക്ക് ഒരു വഴികാട്ടിയും, ഒത്തുകൂടാൻ ഒരിടവും. മലയാളത്തിലും ഇംഗ്ലീഷിലും. ഏതു സ്ഥാപനത്തിനും സ്വന്തം സഹോ നടത്താം.",
+f"""
+<div class="wrap">
+  <div class="home-top">
+    <div>
+      <h1><span class="hero-ml" lang="en">Learn on your own terms, together.</span>ഇഷ്ടമുള്ളത്, ഇഷ്ടമുള്ളപോലെ, <em>ഒരുമിച്ച്</em> പഠിക്കാം.</h1>
+      <p class="lede">ജീവിതത്തിന്റെ ഏതു ഘട്ടത്തിലും സ്വയം പഠിക്കുന്നവർക്ക് ഒരു വഴികാട്ടിയും, ഒത്തുകൂടാൻ ഒരിടവുമാണ് സഹോ. അടുത്തതായി എന്തു പഠിക്കണമെന്ന് കണ്ടെത്താനും, ഒപ്പം പഠിക്കാൻ ആൾക്കാരെ കണ്ടെത്താനും സഹോ സഹായിക്കും. മലയാളത്തിലോ ഇംഗ്ലീഷിലോ, രണ്ടും ഇടകലർത്തിയോ സംസാരിക്കാം.</p>
+      <div class="btns">
+        <a class="btn primary" href="how-it-works.html">എങ്ങനെ പ്രവർത്തിക്കുന്നു <span class="small-en" lang="en">(English)</span></a>
+        <a class="btn" href="institutions.html">സ്ഥാപനങ്ങൾക്ക് <span class="small-en" lang="en">(English)</span></a>
+      </div>
+      <p class="status">സഹോ ഇപ്പോൾ പ്രാവർത്തികമാക്കിക്കൊണ്ടിരിക്കുന്നു. അടുത്തതായി ലൈബ്രറികളുമായി ചേർന്ന് ഒരു ചെറിയ പരീക്ഷണഘട്ടം.</p>
+    </div>
+    {FED_ML.strip()}
+  </div>
+
+  <section aria-label="സഹോ എന്തു ചെയ്യുന്നു">
+    <div class="grid">
+      <div class="tile leaf">
+        <h2>വഴികാട്ടി</h2>
+        <p>മനസ്സിലുള്ളതിനെക്കുറിച്ച് സ്വന്തം ഭാഷയിൽ നിങ്ങൾക്കു സംവദിക്കാനാകുന്ന ഒരു AI സഹായി. അടുത്ത ചുവടുകളും പഠനോപാധികളും നിർദേശിക്കും, നിങ്ങളുടെ ലൈബ്രറിയിലെ പുസ്തകങ്ങൾ ഉൾപ്പെടെ. ക്ലാസെടുക്കില്ല.</p>
+      </div>
+      <div class="tile sky">
+        <h2>കൂട്ടങ്ങൾ</h2>
+        <p>ഓൺലൈനായോ നേരിട്ടോ ഒത്തുകൂടുന്ന പഠിതാക്കളുടെ ചെറിയ കൂട്ടങ്ങൾ. കൂട്ടത്തിലെ സഹായികൾ കാര്യങ്ങൾ വിശദീകരിക്കും, വിലയിരുത്തും, പ്രോത്സാഹിപ്പിക്കും.</p>
+      </div>
+      <div class="tile earth">
+        <h2>നിങ്ങളുടെ രേഖകൾ</h2>
+        <p>നിങ്ങൾ പഠിക്കുന്നതും പറയുന്നതും നിങ്ങളുടേതാണ്. നിങ്ങൾ അനുവദിക്കുന്നതു മാത്രമേ ഓരോ ഇടവും കാണൂ. എവിടെ പോയാലും അത് കൂടെ കൊണ്ടുപോകാം, പൂർണ്ണമായും നീക്കം ചെയ്യാം.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="band">
+  <div class="wrap">
+    <p class="big"><em>സ്വന്തം വഴി കണ്ടെത്താൻ.</em></p>
+    <p>പഠിച്ചിറങ്ങി, പാർട്ട്-ടൈം ജോലി ചെയ്യുന്ന, ഇനി എന്ത് എന്ന് ഉറപ്പില്ലാത്ത ഒരാളെ ഉദാഹരണമായെടുക്കൂ. ചുറ്റുമുള്ള ലോകവും സ്വന്തം കഴിവുകളും സാധ്യതകളും സ്വന്തം വേഗത്തിൽ കണ്ടെത്താനുള്ളതാണ് സഹോ.</p>
+    <p><a href="how-it-works.html">സഹോ എങ്ങനെ പ്രവർത്തിക്കുന്നു എന്നു കാണാം <span lang="en">(English)</span></a></p>
+  </div>
+</div>
+""")
+
+# ---------------------------------------------------------------- About
+PAGES["about.html"] = ("About Saho",
+"Why Saho is being built, who builds it, and where its name comes from.",
+f"""
+<div class="wrap narrow">
+  <section class="page-top">
+    <span class="mark"></span>
+    <h1>About Saho</h1>
+    <p class="lede">Saho is a learning platform for Keralam, run by the institutions that use it. It is in development now, and will be released as open-source software.</p>
+  </section>
+
+  <section>
+    <span class="mark sky"></span>
+    <h2>Why we're building it</h2>
+    <p>Keralam aims to be a knowledge society. AI is changing what knowledge work looks like, and we want people here to learn how to use these tools in their work and lives on their own terms, without handing that over to a few distant platforms.</p>
+  </section>
+
+  <section>
+    <span class="mark"></span>
+    <h2>Who builds it</h2>
+    <p>Saho is built by <a href="https://iterrate.in">Iterrate (OPC) Private Limited</a>, founded by Sangeeth. It is a one-person company for now. You can read more about Sangeeth at <a href="https://sangeethvarma.com">sangeethvarma.com</a>.</p>
+    <p>If you'd like to help build Saho, <a href="contact.html">write to us</a>.</p>
+  </section>
+
+  <section>
+    <span class="mark earth"></span>
+    <h2>The name</h2>
+    <p><em>Saho</em> is a call to work together, named for Sahodaran Ayyappan and his ideals of fraternity and equality. <em>saho.day</em> reads as <em>sahoday</em>: rising together.</p>
   </section>
 </div>
 """)
@@ -317,6 +470,15 @@ EXTRA_HEAD = {
     "index.html": '<link rel="preload" href="fonts/crimson-pro-italic-latin.woff2" as="font" type="font/woff2" crossorigin>\n'
                   '<script type="application/ld+json">' + json.dumps(APP, ensure_ascii=False) + '</script>\n',
 }
+
+
+# Pages not in English.
+LANG = {"ml.html": "ml"}
+LOCALE = {"ml.html": "ml_IN"}
+ALTERNATES = (f'<link rel="alternate" hreflang="en" href="{BASE}">\n'
+              f'<link rel="alternate" hreflang="ml" href="{BASE}ml.html">\n')
+EXTRA_HEAD["index.html"] = ALTERNATES + EXTRA_HEAD["index.html"]
+EXTRA_HEAD["ml.html"] = ALTERNATES
 
 
 def asset(name):
@@ -371,7 +533,8 @@ def build():
         )
         url = BASE if fname == "index.html" else BASE + fname
         head = HEAD.replace('href="style.css"', f'href="{asset("style.css")}"').format(
-            title=plain(title), desc=plain(desc), nav=nav, url=url,
+            title=plain(title), desc=plain(desc), nav=nav, url=url, base=BASE,
+            lang=LANG.get(fname, "en-IN"), locale=LOCALE.get(fname, "en_IN"),
             extra_head=EXTRA_HEAD.get(fname, ""))
         if fname == "404.html":
             # GitHub serves this page at any missing address, so links must start from the site root.
@@ -380,7 +543,9 @@ def build():
             head = head.replace('<meta name="description"', '<meta name="robots" content="noindex">\n<meta name="description"', 1)
         else:
             pages.append((url, fname))
-        foot = FOOT.format(year=YEAR, email=EMAIL)
+        langlink = ('<a href="./" lang="en">English</a>' if fname == "ml.html"
+                    else '<a href="ml.html" lang="ml">മലയാളം</a>')
+        foot = FOOT.format(year=YEAR, email=EMAIL, langlink=langlink)
         html = head + typography(body) + typography(foot)
         changed[fname] = not (SITE / fname).exists() or (SITE / fname).read_text(encoding="utf-8") != html
         (SITE / fname).write_text(html, encoding="utf-8")
