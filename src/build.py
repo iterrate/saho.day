@@ -14,7 +14,7 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent / "docs"
 BASE = "https://saho.day/"
 YEAR = datetime.date.today().year
-EMAIL = "contact@iterrate.in"   # until saho.day has its own address
+EMAIL = "hello@saho.day"
 
 NAV = [
     ("./", "Home"),
