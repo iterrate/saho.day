@@ -114,7 +114,7 @@ FED = """
     </g>
     <circle class="me step s1" cx="160" cy="76" r="9"/>
   </svg>
-  <figcaption>Each institution runs its own Saho, and they are all linked. Here, a learner whose home is the village library has joined a circle at the college.</figcaption>
+  <figcaption>Each institution runs its own Saho, and they are all linked. For example, here a learner whose home is the village library has joined a circle at the college.</figcaption>
 </figure>
 """
 
@@ -202,7 +202,7 @@ f"""
       </div>
       <div class="tile earth">
         <h2>Your record</h2>
-        <p>What you learn and what you say belong to you. Places see only what you allow, and you can take it with you.</p>
+        <p>What you learn and what you say belong to you. Places see only what you allow. Take it with you wherever you go, or delete it completely.</p>
       </div>
     </div>
   </section>
@@ -233,7 +233,7 @@ f"""
     <li><h2>Talk to the guide</h2><p>The guide is an AI assistant. Tell it what you do, what you enjoy and what you're unsure about. You can read and correct its notes on you.</p></li>
     <li><h2>Get a plan</h2><p>Small steps for this month: something to watch, read or try, and a time to look back on how it went.</p></li>
     <li><h2>Learn with a circle</h2><p>Meet learners at your library or college, or online with people anywhere. Helpers explain and encourage, so the teaching comes from people.</p></li>
-    <li><h2>Take it with you</h2><p>Your record belongs to you. Move it to another place, or download it, whenever you choose.</p></li>
+    <li><h2>Take it with you</h2><p>Your record belongs to you. Move it to another place, download it or delete it, whenever you choose.</p></li>
   </ol>
 
   <section>
@@ -359,7 +359,7 @@ FED_ML = (FED
     .replace('<text class="sub" x="26" y="324">run by one person</text>', '<text class="sub" x="26" y="326">ഒരാൾ നടത്തുന്നത്</text>')
     .replace('aria-label="Four linked places: a village library, a college, a hospital and someone\'s own Saho. A learner at the library has a dotted link to a circle at the college."',
              'aria-label="പരസ്പരം ബന്ധിപ്പിച്ച നാല് ഇടങ്ങൾ: ഒരു ഗ്രാമീണ വായനശാല, ഒരു കോളേജ്, ഒരു ആശുപത്രി, ഒരാളുടെ സ്വന്തം സഹോ. വായനശാലയിലുള്ള ഒരു പഠിതാവിന് കോളേജിലെ ഒരു കൂട്ടവുമായി ബന്ധമുണ്ട്."')
-    .replace('<figcaption>Each institution runs its own Saho, and they are all linked. Here, a learner whose home is the village library has joined a circle at the college.</figcaption>',
+    .replace('<figcaption>Each institution runs its own Saho, and they are all linked. For example, here a learner whose home is the village library has joined a circle at the college.</figcaption>',
              '<figcaption>ഓരോ സ്ഥാപനവും സ്വന്തം സഹോ നടത്തുന്നു, അവയെല്ലാം പരസ്പരം ബന്ധപ്പെട്ടിരിക്കുന്നു. ഉദാഹരണത്തിന്, ഇവിടെ, ഗ്രാമീണ വായനശാലയിൽ അംഗമായ ഒരു പഠിതാവ് കോളേജിലെ ഒരു കൂട്ടത്തിൽ ചേർന്നിരിക്കുന്നു.</figcaption>'))
 assert FED_ML.count("ഗ്രാമീണ") == 2 and "Village library" not in FED_ML
 
@@ -375,7 +375,7 @@ f"""
         <a class="btn primary" href="how-it-works.html">എങ്ങനെ പ്രവർത്തിക്കുന്നു <span class="small-en" lang="en">(English)</span></a>
         <a class="btn" href="institutions.html">സ്ഥാപനങ്ങൾക്ക് <span class="small-en" lang="en">(English)</span></a>
       </div>
-      <p class="status">ഇപ്പോൾ പ്രാവർത്തികമാക്കിക്കൊണ്ടിരിക്കുന്നു. അടുത്ത ഘട്ടം ലൈബ്രറികളുമായി ചേർന്ന് ഒരു ചെറിയ പരീക്ഷണം.</p>
+      <p class="status">സഹോ ഇപ്പോൾ പ്രാവർത്തികമാക്കിക്കൊണ്ടിരിക്കുന്നു. അടുത്തതായി ലൈബ്രറികളുമായി ചേർന്ന് ഒരു ചെറിയ പരീക്ഷണഘട്ടം.</p>
     </div>
     {FED_ML.strip()}
   </div>
