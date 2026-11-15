@@ -185,7 +185,7 @@ f"""
         <a class="btn primary" href="how-it-works.html">How it works</a>
         <a class="btn" href="institutions.html">For institutions</a>
       </div>
-      <p class="status">In development. A pilot with libraries comes next. <a href="ml.html" lang="ml">മലയാളത്തിൽ വായിക്കാം</a></p>
+      <p class="status">Saho is a project in development. A pilot with libraries comes next. <a href="ml.html" lang="ml">മലയാളത്തിൽ വായിക്കാം</a></p>
     </div>
     {FED.strip()}
   </div>
@@ -375,7 +375,7 @@ f"""
         <a class="btn primary" href="how-it-works.html">എങ്ങനെ പ്രവർത്തിക്കുന്നു <span class="small-en" lang="en">(English)</span></a>
         <a class="btn" href="institutions.html">സ്ഥാപനങ്ങൾക്ക് <span class="small-en" lang="en">(English)</span></a>
       </div>
-      <p class="status">സഹോ ഇപ്പോൾ പ്രാവർത്തികമാക്കിക്കൊണ്ടിരിക്കുന്നു. അടുത്തതായി ലൈബ്രറികളുമായി ചേർന്ന് ഒരു ചെറിയ പരീക്ഷണഘട്ടം.</p>
+      <p class="status">സഹോ ഇപ്പോൾ വികസനഘട്ടത്തിലുള്ള ഒരു പ്രോജക്റ്റാണ്. അടുത്തതായി ലൈബ്രറികളുമായി ചേർന്ന് ഒരു ചെറിയ പരീക്ഷണഘട്ടം.</p>
     </div>
     {FED_ML.strip()}
   </div>
