@@ -242,7 +242,7 @@ f"""
     <p>Saho isn't one website. Any institution ({INSTITUTIONS}) can run its own Saho, which we call a <em>place</em>. Places are linked to each other, so a learner at one place can learn with people at another.</p>
     {FIG_CONTRAST.strip()}
     <p>Places also share what works, such as learning paths and ways of learning in a circle, with credit to the people who made them.</p>
-    <p>One Saho can serve every library in a panchayat. A single person can also run their own, and join an institution later, or leave it.</p>
+    <p>A panchayat can host a Saho for each of its libraries on one computer. A single person can also run their own, and join an institution later, or leave it.</p>
   </section>
 
   <section>
@@ -251,6 +251,7 @@ f"""
     <p>Every learner has one home place. Your account, your record and your conversations with the guide are kept there.</p>
     {FIG_CENTRE.strip()}
     <p>You can join circles at other places without leaving home. Each place sees only what you allow, and you can take that back at any time. Other places can't see your conversations with the guide.</p>
+    <p>To answer you, the guide sends your words to an AI model. Your place chooses which models it uses, and for your conversations it may only use ones that keep nothing and train on nothing. Nobody uses your conversations to train a model, including us.</p>
     <p>If you move, to a college or to another town, you can move your home place too, and your record goes with you. You can also download it as a file whenever you want.</p>
   </section>
 </div>
@@ -294,7 +295,7 @@ f"""
   <section>
     <div class="grid two">
       <div class="tile sky"><h2>Libraries</h2><p>A reading room becomes a place to learn with others. Saho points learners to books on your own shelves.</p></div>
-      <div class="tile earth"><h2>Panchayats</h2><p>One Saho can serve every library in a panchayat, with local resources and local priorities.</p></div>
+      <div class="tile earth"><h2>Panchayats</h2><p>A panchayat can host Saho for every library in it, each with its own space, local resources and local priorities.</p></div>
       <div class="tile leaf"><h2>Colleges</h2><p>Students and alumni keep learning beyond the syllabus. Your college decides how learning works at its place.</p></div>
       <div class="tile sky"><h2>Any organisation</h2><p>A hospital could run Saho to help its staff keep learning. So could a cooperative, a club or a company.</p></div>
     </div>
